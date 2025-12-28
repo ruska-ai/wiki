@@ -1,0 +1,27 @@
+{
+  "id": "tools/mcp",
+  "title": "MCP",
+  "description": "Join Discord",
+  "source": "@site/docs/tools/mcp.md",
+  "sourceDirName": "tools",
+  "slug": "/tools/mcp",
+  "permalink": "/docs/tools/mcp",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/tools/mcp.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "MCP",
+    "slug": "/tools/mcp"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Search",
+    "permalink": "/docs/tools/search"
+  },
+  "next": {
+    "title": "A2A",
+    "permalink": "/docs/tools/a2a"
+  }
+}

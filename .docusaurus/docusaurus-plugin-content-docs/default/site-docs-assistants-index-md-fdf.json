@@ -1,0 +1,29 @@
+{
+  "id": "assistants/index",
+  "title": "Assistants",
+  "description": "Assistants are pre-configured AI agents with specific instructions, tools, and behaviors. Think of them as specialized team members that you can deploy for specific tasks, whether through the web interface or via API.",
+  "source": "@site/docs/assistants/index.md",
+  "sourceDirName": "assistants",
+  "slug": "/assistants",
+  "permalink": "/docs/assistants",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/assistants/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Assistants",
+    "slug": "/assistants",
+    "sidebar_position": 3
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/getting-started"
+  },
+  "next": {
+    "title": "Threads",
+    "permalink": "/docs/threads"
+  }
+}

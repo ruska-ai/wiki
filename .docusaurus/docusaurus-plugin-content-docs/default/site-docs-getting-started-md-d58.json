@@ -1,0 +1,28 @@
+{
+  "id": "getting-started",
+  "title": "Getting Started",
+  "description": "Welcome to Orchestra! This guide will walk you through your first steps with the platform, from logging in to sending your first AI-powered message.",
+  "source": "@site/docs/getting-started.md",
+  "sourceDirName": ".",
+  "slug": "/getting-started",
+  "permalink": "/docs/getting-started",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/getting-started.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "Getting Started",
+    "sidebar_position": 2
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Orchestra Docs",
+    "permalink": "/docs/"
+  },
+  "next": {
+    "title": "Assistants",
+    "permalink": "/docs/assistants"
+  }
+}

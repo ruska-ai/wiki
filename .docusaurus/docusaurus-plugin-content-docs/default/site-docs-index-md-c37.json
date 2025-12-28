@@ -1,0 +1,23 @@
+{
+  "id": "index",
+  "title": "Orchestra Docs",
+  "description": "Composable agent infrastructure built on LangGraph with MCP and A2A support.",
+  "source": "@site/docs/index.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Orchestra Docs",
+    "description": "Composable agent infrastructure built on LangGraph with MCP and A2A support."
+  },
+  "sidebar": "docs",
+  "next": {
+    "title": "Getting Started",
+    "permalink": "/docs/getting-started"
+  }
+}

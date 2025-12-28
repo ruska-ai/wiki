@@ -1,0 +1,73 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "assistants/index",
+              "path": "/docs/assistants",
+              "sidebar": "docs"
+            },
+            {
+              "id": "getting-started",
+              "path": "/docs/getting-started",
+              "sidebar": "docs"
+            },
+            {
+              "id": "index",
+              "path": "/docs/",
+              "sidebar": "docs"
+            },
+            {
+              "id": "storage/index",
+              "path": "/docs/storage",
+              "sidebar": "docs"
+            },
+            {
+              "id": "threads/index",
+              "path": "/docs/threads",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools/a2a",
+              "path": "/docs/tools/a2a",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools/mcp",
+              "path": "/docs/tools/mcp",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools/search",
+              "path": "/docs/tools/search",
+              "sidebar": "docs"
+            },
+            {
+              "id": "tools/tools",
+              "path": "/docs/tools",
+              "sidebar": "docs"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "docs": {
+              "link": {
+                "path": "/docs/",
+                "label": "index"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

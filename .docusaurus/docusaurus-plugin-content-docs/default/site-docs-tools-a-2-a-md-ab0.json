@@ -1,0 +1,23 @@
+{
+  "id": "tools/a2a",
+  "title": "A2A",
+  "description": "Join Discord",
+  "source": "@site/docs/tools/a2a.md",
+  "sourceDirName": "tools",
+  "slug": "/tools/a2a",
+  "permalink": "/docs/tools/a2a",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/tools/a2a.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "A2A",
+    "slug": "/tools/a2a"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "MCP",
+    "permalink": "/docs/tools/mcp"
+  }
+}

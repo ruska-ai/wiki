@@ -1,0 +1,29 @@
+{
+  "id": "storage/index",
+  "title": "Storage",
+  "description": "Orchestra provides S3-compatible object storage for managing files and documents. Combined with RAG (Retrieval-Augmented Generation) capabilities, storage enables you to build knowledge-enhanced AI agents.",
+  "source": "@site/docs/storage/index.md",
+  "sourceDirName": "storage",
+  "slug": "/storage",
+  "permalink": "/docs/storage",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/storage/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Storage",
+    "slug": "/storage",
+    "sidebar_position": 5
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Threads",
+    "permalink": "/docs/threads"
+  },
+  "next": {
+    "title": "Tools & Integrations",
+    "permalink": "/docs/tools"
+  }
+}

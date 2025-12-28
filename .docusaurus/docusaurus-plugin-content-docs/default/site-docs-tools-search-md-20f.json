@@ -1,0 +1,27 @@
+{
+  "id": "tools/search",
+  "title": "Search",
+  "description": "The search_engine tool allows performing web searches using a Searx search instance. It returns search results based on the provided query and optional parameters.",
+  "source": "@site/docs/tools/search.md",
+  "sourceDirName": "tools",
+  "slug": "/tools/search",
+  "permalink": "/docs/tools/search",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/tools/search.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Search",
+    "slug": "/tools/search"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Tools & Integrations",
+    "permalink": "/docs/tools"
+  },
+  "next": {
+    "title": "MCP",
+    "permalink": "/docs/tools/mcp"
+  }
+}

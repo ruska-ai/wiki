@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-getting-started" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">Getting Started | Orchestra Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://docs.ruska.ai/docs/getting-started"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Getting Started | Orchestra Docs"><meta data-rh="true" name="description" content="Welcome to Orchestra! This guide will walk you through your first steps with the platform, from logging in to sending your first AI-powered message."><meta data-rh="true" property="og:description" content="Welcome to Orchestra! This guide will walk you through your first steps with the platform, from logging in to sending your first AI-powered message."><link data-rh="true" rel="icon" href="/img/ruska_logo_200.png"><link data-rh="true" rel="canonical" href="https://docs.ruska.ai/docs/getting-started"><link data-rh="true" rel="alternate" href="https://docs.ruska.ai/docs/getting-started" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.ruska.ai/docs/getting-started" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.6fb5de49.css">
+<script src="/assets/js/runtime~main.7a2768ac.js" defer="defer"></script>
+<script src="/assets/js/main.7ea22ecb.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):window.matchMedia("(prefers-color-scheme: light)").matches?t("light"):t("dark")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/ruska_logo_200.png" alt="Orchestra" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/ruska_logo_200.png" alt="Orchestra" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Orchestra</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/getting-started">Getting Started</a><a href="https://orchestra.ruska.ai/api" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">API<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ruska-ai/orchestra" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://ruska.ai/blog" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://ruska.ai/socials" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Social<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://discord.com/invite/QRfjg4YNzU" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Slack<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently dark mode)" aria-label="Switch between dark and light mode (currently dark mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/">Orchestra Docs</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/docs/getting-started">Getting Started</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/assistants">Core Features</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/tools">Tools &amp; Integrations</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Getting Started</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Getting Started with Orchestra</h1></header>
+<p>Welcome to Orchestra! This guide will walk you through your first steps with the platform, from logging in to sending your first AI-powered message.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-youll-learn">What You&#x27;ll Learn<a href="#what-youll-learn" class="hash-link" aria-label="Direct link to What You&#x27;ll Learn" title="Direct link to What You&#x27;ll Learn">​</a></h2>
+<ul>
+<li>How to access your Orchestra instance</li>
+<li>Creating your first conversation thread</li>
+<li>Understanding and selecting AI models</li>
+<li>Basic chat interactions</li>
+<li>Exploring tools and integrations (optional)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="prerequisites">Prerequisites<a href="#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites">​</a></h2>
+<p>Before you begin, ensure you have:</p>
+<ul>
+<li>Access to an Orchestra instance (e.g., <code>https://orchestra.ruska.ai</code>)</li>
+<li>User account credentials</li>
+<li>A modern web browser</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="quick-start-5-minutes">Quick Start (5 minutes)<a href="#quick-start-5-minutes" class="hash-link" aria-label="Direct link to Quick Start (5 minutes)" title="Direct link to Quick Start (5 minutes)">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-log-in">Step 1: Log In<a href="#step-1-log-in" class="hash-link" aria-label="Direct link to Step 1: Log In" title="Direct link to Step 1: Log In">​</a></h3>
+<ol>
+<li>Navigate to your Orchestra instance in your web browser</li>
+<li>Enter your credentials:<!-- -->
+<ul>
+<li><strong>Email</strong>: Your user email (e.g., <code>admin@example.com</code> for demo)</li>
+<li><strong>Password</strong>: Your password</li>
+</ul>
+</li>
+<li>Click <strong>Sign In</strong></li>
+</ol>
+<p>You&#x27;ll be redirected to the main chat interface.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-start-a-new-thread">Step 2: Start a New Thread<a href="#step-2-start-a-new-thread" class="hash-link" aria-label="Direct link to Step 2: Start a New Thread" title="Direct link to Step 2: Start a New Thread">​</a></h3>
+<p>When you first log in, you&#x27;ll see the Orchestra interface with:</p>
+<ul>
+<li><strong>Sidebar</strong>: Shows your previous threads and assistants</li>
+<li><strong>Main Chat Area</strong>: Where conversations happen</li>
+<li><strong>Model Selector</strong>: At the top to choose your AI model</li>
+</ul>
+<p>The interface automatically creates a new thread when you send your first message, or you can explicitly start a new thread from the sidebar.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-3-select-your-model">Step 3: Select Your Model<a href="#step-3-select-your-model" class="hash-link" aria-label="Direct link to Step 3: Select Your Model" title="Direct link to Step 3: Select Your Model">​</a></h3>
+<p>At the top of the chat interface, you&#x27;ll see a model dropdown. Orchestra supports multiple AI providers:</p>
+<ul>
+<li><strong>Anthropic</strong>: Claude models (Haiku, Sonnet, Opus)</li>
+<li><strong>OpenAI</strong>: GPT models (GPT-5, GPT-4o, etc.)</li>
+<li><strong>Google</strong>: Gemini models</li>
+<li><strong>xAI</strong>: Grok models</li>
+<li><strong>Groq</strong>: Fast inference models</li>
+</ul>
+<p>Click the dropdown and select your preferred model. For most use cases, we recommend:</p>
+<ul>
+<li><strong>Claude Haiku 4.5</strong>: Fast, cost-effective for simple tasks</li>
+<li><strong>Claude Sonnet 4.5</strong>: Balanced performance for complex reasoning</li>
+<li><strong>GPT-4o</strong>: Excellent for multi-modal tasks (text + images)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-4-send-your-first-message">Step 4: Send Your First Message<a href="#step-4-send-your-first-message" class="hash-link" aria-label="Direct link to Step 4: Send Your First Message" title="Direct link to Step 4: Send Your First Message">​</a></h3>
+<ol>
+<li>Click in the text input at the bottom of the screen</li>
+<li>Type your message or question</li>
+<li>Press <strong>Enter</strong> or click the <strong>Send</strong> button</li>
+</ol>
+<p>Your message will be sent to the selected AI model, and you&#x27;ll see the response appear in the chat thread.</p>
+<p><strong>Example first messages:</strong></p>
+<ul>
+<li><code>What is Orchestra and what can it do?</code></li>
+<li><code>Help me write a Python function to calculate fibonacci numbers</code></li>
+<li><code>What&#x27;s the latest news about AI development?</code> (requires search tool)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-5-explore-tools-optional">Step 5: Explore Tools (Optional)<a href="#step-5-explore-tools-optional" class="hash-link" aria-label="Direct link to Step 5: Explore Tools (Optional)" title="Direct link to Step 5: Explore Tools (Optional)">​</a></h3>
+<p>Orchestra&#x27;s power comes from its ability to integrate external tools. To explore tools:</p>
+<ol>
+<li>Click the <strong>Tools</strong> icon next to the message input</li>
+<li>Browse available tools:<!-- -->
+<ul>
+<li><strong>Search</strong>: Web search via Searx</li>
+<li><strong>MCP Servers</strong>: Configure Model Context Protocol integrations</li>
+<li><strong>A2A Agents</strong>: Connect to Agent-to-Agent protocol services</li>
+</ul>
+</li>
+</ol>
+<p>For now, try asking a question that requires web search:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">What is the current price of Bitcoin?</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>If you have search tools configured, the AI will automatically use them to get real-time information.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understanding-the-interface">Understanding the Interface<a href="#understanding-the-interface" class="hash-link" aria-label="Direct link to Understanding the Interface" title="Direct link to Understanding the Interface">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sidebar-navigation">Sidebar Navigation<a href="#sidebar-navigation" class="hash-link" aria-label="Direct link to Sidebar Navigation" title="Direct link to Sidebar Navigation">​</a></h3>
+<p>The left sidebar provides quick access to:</p>
+<ul>
+<li><strong>Threads</strong>: All your conversation histories<!-- -->
+<ul>
+<li>Click any thread to resume that conversation</li>
+<li>Threads show preview text, timestamp, and model used</li>
+<li>Delete threads using the trash icon</li>
+</ul>
+</li>
+<li><strong>Assistants</strong>: Pre-configured AI agents (more on this later)<!-- -->
+<ul>
+<li>Create assistants with specific instructions and tools</li>
+<li>Reuse assistants across multiple threads</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-menu">User Menu<a href="#user-menu" class="hash-link" aria-label="Direct link to User Menu" title="Direct link to User Menu">​</a></h3>
+<p>Click your avatar in the top-right to access:</p>
+<ul>
+<li><strong>Prompts</strong>: Saved prompt templates for common tasks</li>
+<li><strong>Assistants</strong>: Manage your assistant configurations</li>
+<li><strong>Schedules</strong>: Set up scheduled agent tasks (cron-based)</li>
+<li><strong>Logout</strong>: Sign out of your account</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="theme-toggle">Theme Toggle<a href="#theme-toggle" class="hash-link" aria-label="Direct link to Theme Toggle" title="Direct link to Theme Toggle">​</a></h3>
+<p>Switch between light and dark mode using the theme toggle button at the top of the interface.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="file-editor-panel">File Editor Panel<a href="#file-editor-panel" class="hash-link" aria-label="Direct link to File Editor Panel" title="Direct link to File Editor Panel">​</a></h3>
+<p>When the AI generates code files or documents during a conversation, Orchestra displays them in a powerful, VSCode-like file editor interface:</p>
+<p><img decoding="async" loading="lazy" src="https://github.com/ryaneggz/static/blob/main/enso/file-editor-panel.png?raw=true" alt="File Editor Panel" class="img_ev3q"></p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Multi-file Tabs</strong>: Navigate between generated files using tabs at the top</li>
+<li><strong>Syntax Highlighting</strong>: Automatic language detection for 20+ programming languages (JavaScript, TypeScript, Python, Go, Rust, Java, C/C++, C#, PHP, Ruby, Swift, Kotlin, HTML, CSS, YAML, JSON, XML, SQL, Shell, Markdown, and more)</li>
+<li><strong>Markdown Preview</strong>: Toggle between code view and rendered preview for <code>.md</code> files</li>
+<li><strong>Copy Content</strong>: One-click copy of individual file contents to your clipboard</li>
+<li><strong>Download Options</strong>:<!-- -->
+<ul>
+<li>Download individual files with the download button</li>
+<li>Download all files as a ZIP archive with one click</li>
+</ul>
+</li>
+</ul>
+<p><strong>When to Use:</strong></p>
+<p>The file editor appears automatically when the AI generates multiple files or code artifacts. For example:</p>
+<ul>
+<li>Ask the AI to &quot;create a simple Express.js app with routes and middleware&quot; - it will generate multiple JavaScript files</li>
+<li>Request &quot;write a Python script with tests&quot; - you&#x27;ll get the main script plus test files</li>
+<li>Say &quot;build a React component with styles&quot; - receive the component file and CSS</li>
+</ul>
+<p><strong>Usage Tips:</strong></p>
+<p>!!! tip &quot;Quick Navigation&quot;
+Use the file tabs to quickly switch between generated files. The active file is highlighted.</p>
+<p>!!! tip &quot;Markdown Preview&quot;
+For documentation files, use the preview toggle to see how your markdown will render.</p>
+<p>!!! tip &quot;Bulk Download&quot;
+Use the &quot;Download All as ZIP&quot; button to download entire project structures at once.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="whats-next">What&#x27;s Next?<a href="#whats-next" class="hash-link" aria-label="Direct link to What&#x27;s Next?" title="Direct link to What&#x27;s Next?">​</a></h2>
+<p>Now that you&#x27;ve sent your first message, explore these features:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="learn-about-assistants">Learn About Assistants<a href="#learn-about-assistants" class="hash-link" aria-label="Direct link to Learn About Assistants" title="Direct link to Learn About Assistants">​</a></h3>
+<p><a href="/docs/assistants">Assistants</a> are pre-configured AI agents with specific instructions, tools, and personalities. They&#x27;re perfect for:</p>
+<ul>
+<li>Creating specialized agents (e.g., &quot;Python Tutor&quot;, &quot;Marketing Copywriter&quot;)</li>
+<li>Reusing consistent behavior across conversations</li>
+<li>Deploying via API for programmatic access</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="explore-protocol-integrations">Explore Protocol Integrations<a href="#explore-protocol-integrations" class="hash-link" aria-label="Direct link to Explore Protocol Integrations" title="Direct link to Explore Protocol Integrations">​</a></h3>
+<ul>
+<li><strong><a href="/docs/tools/mcp">Model Context Protocol (MCP)</a></strong>: Connect to external tools and data sources</li>
+<li><strong><a href="/docs/tools/a2a">Agent-to-Agent (A2A)</a></strong>: Enable multi-agent workflows</li>
+<li><strong><a href="/docs/tools/search">Search Integration</a></strong>: Add web search capabilities</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dive-into-the-api">Dive into the API<a href="#dive-into-the-api" class="hash-link" aria-label="Direct link to Dive into the API" title="Direct link to Dive into the API">​</a></h3>
+<p>Orchestra provides a full REST API that mirrors the OpenAI Assistants API:</p>
+<ul>
+<li><a href="https://orchestra.ruska.ai/api" target="_blank" rel="noopener noreferrer">API Documentation</a>: Interactive API reference</li>
+<li>Create threads programmatically</li>
+<li>Build custom integrations</li>
+<li>Deploy AI agents at scale</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="advanced-features">Advanced Features<a href="#advanced-features" class="hash-link" aria-label="Direct link to Advanced Features" title="Direct link to Advanced Features">​</a></h3>
+<ul>
+<li><strong><a href="/docs/storage">Storage &amp; RAG</a></strong>: Upload documents for retrieval-augmented generation</li>
+<li><strong><a href="https://orchestra.ruska.ai/api#/Project" target="_blank" rel="noopener noreferrer">Projects</a></strong>: Organize document indexes for knowledge bases</li>
+<li><strong><a href="https://orchestra.ruska.ai/api#/Prompt" target="_blank" rel="noopener noreferrer">Prompts</a></strong>: Create reusable prompt templates</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tips-for-success">Tips for Success<a href="#tips-for-success" class="hash-link" aria-label="Direct link to Tips for Success" title="Direct link to Tips for Success">​</a></h2>
+<p>!!! tip &quot;Model Selection&quot;
+Different models excel at different tasks. Haiku for speed, Sonnet for reasoning, GPT-4o for vision tasks. Don&#x27;t hesitate to switch models mid-conversation!</p>
+<p>!!! info &quot;Thread Management&quot;
+Threads maintain full conversation context. Long conversations may impact response time and cost - start a new thread for unrelated topics.</p>
+<p>!!! warning &quot;Tool Configuration&quot;
+MCP and A2A integrations require configuration before use. See the respective tool documentation for setup instructions.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="getting-help">Getting Help<a href="#getting-help" class="hash-link" aria-label="Direct link to Getting Help" title="Direct link to Getting Help">​</a></h2>
+<p>If you encounter issues or have questions:</p>
+<ul>
+<li><strong><a href="https://discord.com/invite/QRfjg4YNzU" target="_blank" rel="noopener noreferrer">Discord Community</a></strong>: Get help from the community</li>
+<li><strong><a href="https://github.com/ruska-ai" target="_blank" rel="noopener noreferrer">GitHub Issues</a></strong>: Report bugs or request features</li>
+<li><strong><a href="https://orchestra.ruska.ai/api" target="_blank" rel="noopener noreferrer">API Docs</a></strong>: Detailed technical reference</li>
+</ul>
+<hr>
+<p><strong>Ready to build?</strong> Start exploring <a href="/docs/assistants">Assistants</a> or dive into the <a href="https://orchestra.ruska.ai/api" target="_blank" rel="noopener noreferrer">API Documentation</a>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/ruska-ai/orchestra/edit/main/docs/docs/getting-started.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Orchestra Docs</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/assistants"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Assistants</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-youll-learn" class="table-of-contents__link toc-highlight">What You&#39;ll Learn</a></li><li><a href="#prerequisites" class="table-of-contents__link toc-highlight">Prerequisites</a></li><li><a href="#quick-start-5-minutes" class="table-of-contents__link toc-highlight">Quick Start (5 minutes)</a><ul><li><a href="#step-1-log-in" class="table-of-contents__link toc-highlight">Step 1: Log In</a></li><li><a href="#step-2-start-a-new-thread" class="table-of-contents__link toc-highlight">Step 2: Start a New Thread</a></li><li><a href="#step-3-select-your-model" class="table-of-contents__link toc-highlight">Step 3: Select Your Model</a></li><li><a href="#step-4-send-your-first-message" class="table-of-contents__link toc-highlight">Step 4: Send Your First Message</a></li><li><a href="#step-5-explore-tools-optional" class="table-of-contents__link toc-highlight">Step 5: Explore Tools (Optional)</a></li></ul></li><li><a href="#understanding-the-interface" class="table-of-contents__link toc-highlight">Understanding the Interface</a><ul><li><a href="#sidebar-navigation" class="table-of-contents__link toc-highlight">Sidebar Navigation</a></li><li><a href="#user-menu" class="table-of-contents__link toc-highlight">User Menu</a></li><li><a href="#theme-toggle" class="table-of-contents__link toc-highlight">Theme Toggle</a></li><li><a href="#file-editor-panel" class="table-of-contents__link toc-highlight">File Editor Panel</a></li></ul></li><li><a href="#whats-next" class="table-of-contents__link toc-highlight">What&#39;s Next?</a><ul><li><a href="#learn-about-assistants" class="table-of-contents__link toc-highlight">Learn About Assistants</a></li><li><a href="#explore-protocol-integrations" class="table-of-contents__link toc-highlight">Explore Protocol Integrations</a></li><li><a href="#dive-into-the-api" class="table-of-contents__link toc-highlight">Dive into the API</a></li><li><a href="#advanced-features" class="table-of-contents__link toc-highlight">Advanced Features</a></li></ul></li><li><a href="#tips-for-success" class="table-of-contents__link toc-highlight">Tips for Success</a></li><li><a href="#getting-help" class="table-of-contents__link toc-highlight">Getting Help</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/getting-started">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/assistants">Core Features</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/tools">Tools &amp; Integrations</a></li><li class="footer__item"><a href="https://orchestra.ruska.ai/api" target="_blank" rel="noopener noreferrer" class="footer__link-item">API<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.com/invite/QRfjg4YNzU" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg" target="_blank" rel="noopener noreferrer" class="footer__link-item">Slack<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/ruska-ai/orchestra" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Company</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://ruska.ai/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://ruska.ai/socials" target="_blank" rel="noopener noreferrer" class="footer__link-item">Socials<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://ruska.ai" target="_blank" rel="noopener noreferrer" class="footer__link-item">Ruska Labs<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Ruska Labs. All rights reserved.</div></div></div></footer></div>
+</body>
+</html>

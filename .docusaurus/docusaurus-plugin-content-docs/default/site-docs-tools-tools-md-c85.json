@@ -1,0 +1,29 @@
+{
+  "id": "tools/tools",
+  "title": "Tools & Integrations",
+  "description": "Orchestra provides a rich ecosystem of tools and protocol integrations that allow you to compose powerful AI agent systems. Whether you're using built-in tools or connecting external services via MCP and A2A protocols, Orchestra makes it easy to extend your agents' capabilities.",
+  "source": "@site/docs/tools/tools.md",
+  "sourceDirName": "tools",
+  "slug": "/tools",
+  "permalink": "/docs/tools",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ruska-ai/orchestra/edit/main/docs/docs/tools/tools.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "title": "Tools & Integrations",
+    "slug": "/tools",
+    "sidebar_position": 6
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Storage",
+    "permalink": "/docs/storage"
+  },
+  "next": {
+    "title": "Search",
+    "permalink": "/docs/tools/search"
+  }
+}
