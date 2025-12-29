@@ -12,11 +12,11 @@ Threads are stateful conversations that maintain message history and context. Ev
 
 Threads represent the conversation layer of Orchestra. They:
 
-- **Maintain Context**: Keep track of all messages, both from users and AI
-- **Store Tool Executions**: Record when and how tools were used
-- **Support File Attachments**: Allow documents and images to be part of the conversation
-- **Enable Model Switching**: Change AI models mid-conversation
-- **Persist History**: Save conversations for future reference
+-   **Maintain Context**: Keep track of all messages, both from users and AI
+-   **Store Tool Executions**: Record when and how tools were used
+-   **Support File Attachments**: Allow documents and images to be part of the conversation
+-   **Enable Model Switching**: Change AI models mid-conversation
+-   **Persist History**: Save conversations for future reference
 
 ## Key Concepts
 
@@ -26,11 +26,11 @@ A thread is a conversation session between a user and an AI model (or assistant)
 
 **Thread Components:**
 
-- **Messages**: User messages and AI responses
-- **Tool Calls**: Logs of tool executions (search queries, MCP calls, etc.)
-- **Metadata**: Custom data attached to the thread (user ID, tags, etc.)
-- **Files**: Uploaded documents or images referenced in the conversation
-- **Configuration**: Model selection, system prompts, tool access
+-   **Messages**: User messages and AI responses
+-   **Tool Calls**: Logs of tool executions (search queries, MCP calls, etc.)
+-   **Metadata**: Custom data attached to the thread (user ID, tags, etc.)
+-   **Files**: Uploaded documents or images referenced in the conversation
+-   **Configuration**: Model selection, system prompts, tool access
 
 ### Thread Lifecycle
 
@@ -59,12 +59,12 @@ A thread is a conversation session between a user and an AI model (or assistant)
 
 ### Threads vs Assistants
 
-| Aspect | Threads | Assistants |
-|--------|---------|------------|
-| **Purpose** | Conversation container | Reusable AI configuration |
-| **Lifespan** | Single conversation | Persistent across many threads |
-| **Configuration** | Can change mid-conversation | Fixed configuration |
-| **Scope** | Specific interaction | General purpose |
+| Aspect            | Threads                     | Assistants                     |
+| ----------------- | --------------------------- | ------------------------------ |
+| **Purpose**       | Conversation container      | Reusable AI configuration      |
+| **Lifespan**      | Single conversation         | Persistent across many threads |
+| **Configuration** | Can change mid-conversation | Fixed configuration            |
+| **Scope**         | Specific interaction        | General purpose                |
 
 ## Creating Threads
 
@@ -84,7 +84,7 @@ Create a thread programmatically:
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread' \
+  'https://chat.ruska.ai/api/thread' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -98,7 +98,7 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread' \
+  'https://chat.ruska.ai/api/thread' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -111,7 +111,7 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread' \
+  'https://chat.ruska.ai/api/thread' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -166,13 +166,13 @@ curl -X 'POST' \
 
 **Via Web Interface:**
 
-- The sidebar shows all your threads
-- Click any thread to load its full conversation history
-- Threads display:
-  - Preview of the first message
-  - Timestamp (e.g., "2 hours ago")
-  - Number of file attachments
-  - Model used
+-   The sidebar shows all your threads
+-   Click any thread to load its full conversation history
+-   Threads display:
+    -   Preview of the first message
+    -   Timestamp (e.g., "2 hours ago")
+    -   Number of file attachments
+    -   Model used
 
 **Via API:**
 
@@ -180,7 +180,7 @@ Get a specific thread:
 
 ```bash
 curl -X 'GET' \
-  'https://orchestra.ruska.ai/api/thread/thread_xyz789' \
+  'https://chat.ruska.ai/api/thread/thread_xyz789' \
   -H 'accept: application/json'
 ```
 
@@ -188,7 +188,7 @@ List all your threads:
 
 ```bash
 curl -X 'GET' \
-  'https://orchestra.ruska.ai/api/threads?limit=20&offset=0' \
+  'https://chat.ruska.ai/api/threads?limit=20&offset=0' \
   -H 'accept: application/json'
 ```
 
@@ -198,7 +198,7 @@ Continue an existing conversation:
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread/thread_xyz789/message' \
+  'https://chat.ruska.ai/api/thread/thread_xyz789/message' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -212,19 +212,19 @@ The AI will respond with full context from the previous messages in the thread.
 
 **Via Web Interface:**
 
-- Hover over a thread in the sidebar
-- Click the trash icon
-- Confirm deletion
+-   Hover over a thread in the sidebar
+-   Click the trash icon
+-   Confirm deletion
 
 **Via API:**
 
 ```bash
 curl -X 'DELETE' \
-  'https://orchestra.ruska.ai/api/thread/thread_xyz789'
+  'https://chat.ruska.ai/api/thread/thread_xyz789'
 ```
 
 !!! warning "Permanent Deletion"
-    Deleting a thread removes all messages, tool execution logs, and associated data permanently. This cannot be undone.
+Deleting a thread removes all messages, tool execution logs, and associated data permanently. This cannot be undone.
 
 ## Thread Features
 
@@ -232,16 +232,17 @@ curl -X 'DELETE' \
 
 All messages in a thread are automatically saved:
 
-- User messages
-- AI responses
-- Tool execution results
-- System messages
+-   User messages
+-   AI responses
+-   Tool execution results
+-   System messages
 
 This allows you to:
-- Review conversation history
-- Resume conversations later
-- Audit tool usage
-- Analyze patterns
+
+-   Review conversation history
+-   Resume conversations later
+-   Audit tool usage
+-   Analyze patterns
 
 ### File Attachments
 
@@ -249,15 +250,15 @@ Threads support file uploads for multi-modal interactions:
 
 **Supported File Types:**
 
-- **Images**: PNG, JPG, WEBP (for vision-capable models)
-- **Documents**: PDF, TXT, MD, CSV (for RAG and analysis)
-- **Audio**: WAV, MP3 (for transcription)
+-   **Images**: PNG, JPG, WEBP (for vision-capable models)
+-   **Documents**: PDF, TXT, MD, CSV (for RAG and analysis)
+-   **Audio**: WAV, MP3 (for transcription)
 
 **Attaching Files via API:**
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread' \
+  'https://chat.ruska.ai/api/thread' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -273,41 +274,42 @@ curl -X 'POST' \
 
 When tools are used in a thread, Orchestra logs:
 
-- Which tool was called
-- What arguments were passed
-- The tool's response
-- Any errors encountered
+-   Which tool was called
+-   What arguments were passed
+-   The tool's response
+-   Any errors encountered
 
 This visibility helps with:
-- **Debugging**: Understand why a tool call failed
-- **Auditing**: Track what external systems were accessed
-- **Cost Management**: See how many API calls were made
+
+-   **Debugging**: Understand why a tool call failed
+-   **Auditing**: Track what external systems were accessed
+-   **Cost Management**: See how many API calls were made
 
 **Example Tool Call Log:**
 
 ```json
 {
-  "tool_call": {
-    "id": "call_abc123",
-    "type": "function",
-    "function": {
-      "name": "search_engine",
-      "arguments": {
-        "query": "latest AI news",
-        "num_results": 5
-      }
-    }
-  },
-  "tool_response": {
-    "results": [
-      {
-        "title": "New AI Model Released",
-        "url": "https://example.com/news",
-        "snippet": "..."
-      }
-    ]
-  },
-  "duration_ms": 1250
+    "tool_call": {
+        "id": "call_abc123",
+        "type": "function",
+        "function": {
+            "name": "search_engine",
+            "arguments": {
+                "query": "latest AI news",
+                "num_results": 5
+            }
+        }
+    },
+    "tool_response": {
+        "results": [
+            {
+                "title": "New AI Model Released",
+                "url": "https://example.com/news",
+                "snippet": "..."
+            }
+        ]
+    },
+    "duration_ms": 1250
 }
 ```
 
@@ -317,7 +319,7 @@ Change models mid-conversation to optimize for different tasks:
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread/thread_xyz789/message' \
+  'https://chat.ruska.ai/api/thread/thread_xyz789/message' \
   -H 'Content-Type: application/json' \
   -d '{
   "query": "Now summarize our conversation so far",
@@ -327,9 +329,9 @@ curl -X 'POST' \
 
 **Use Cases:**
 
-- Start with Sonnet for complex reasoning, switch to Haiku for summary
-- Use GPT-4o for image analysis, then switch to Claude for text generation
-- Experiment with different models to compare responses
+-   Start with Sonnet for complex reasoning, switch to Haiku for summary
+-   Use GPT-4o for image analysis, then switch to Claude for text generation
+-   Experiment with different models to compare responses
 
 ## Advanced Features
 
@@ -350,9 +352,9 @@ Thread metadata provides context to the AI model through system prompts. The fol
 
 **Supported metadata fields:**
 
-- **`current_utc`**: Current timestamp (ISO 8601) - provides temporal context for time-aware responses
-- **`timezone`**: User's timezone (e.g., "America/Denver", "Asia/Tokyo") - helps with scheduling and time references
-- **`language`**: User's language (e.g., "en-US", "ja-JP") - guides response language and localization
+-   **`current_utc`**: Current timestamp (ISO 8601) - provides temporal context for time-aware responses
+-   **`timezone`**: User's timezone (e.g., "America/Denver", "Asia/Tokyo") - helps with scheduling and time references
+-   **`language`**: User's language (e.g., "en-US", "ja-JP") - guides response language and localization
 
 These values are automatically appended to the system prompt, giving the AI model contextual awareness.
 
@@ -362,7 +364,7 @@ For real-time interaction, use streaming to receive responses as they're generat
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread/stream' \
+  'https://chat.ruska.ai/api/thread/stream' \
   -H 'Content-Type: application/json' \
   -d '{
   "query": "Write a long essay about AI safety",
@@ -389,39 +391,36 @@ Combine text, images, and audio in a single thread:
 ## Best Practices
 
 !!! tip "Thread Naming"
-    While threads auto-generate previews, use meaningful first messages. Instead of "Hello", try "Help me design a database schema for a blog platform."
+While threads auto-generate previews, use meaningful first messages. Instead of "Hello", try "Help me design a database schema for a blog platform."
 
 !!! tip "Context Management"
-    Long threads can slow down responses and increase costs. For unrelated topics, start a new thread rather than continuing the same conversation.
+Long threads can slow down responses and increase costs. For unrelated topics, start a new thread rather than continuing the same conversation.
 
 !!! info "Tool Selection"
-    Only include tools you need for the specific thread. Tools are evaluated on every message, so unnecessary tools add latency.
+Only include tools you need for the specific thread. Tools are evaluated on every message, so unnecessary tools add latency.
 
-!!! tip "Model Selection Strategy"
-    - **Exploration**: Start with a capable model (Sonnet, GPT-4o)
-    - **Iteration**: Switch to faster models (Haiku) once you know what you want
-    - **Production**: Use the most cost-effective model that meets quality requirements
+!!! tip "Model Selection Strategy" - **Exploration**: Start with a capable model (Sonnet, GPT-4o) - **Iteration**: Switch to faster models (Haiku) once you know what you want - **Production**: Use the most cost-effective model that meets quality requirements
 
 !!! warning "File Size Limits"
-    Large file uploads may have size restrictions. Check your instance's limits or consider using [Storage](../storage/index.md) for large document collections.
+Large file uploads may have size restrictions. Check your instance's limits or consider using [Storage](../storage/index.md) for large document collections.
 
 ## API Reference
 
 For complete thread API documentation:
 
-- [Thread API Reference](https://orchestra.ruska.ai/api#/Thread)
-- [Create Thread](https://orchestra.ruska.ai/api#/Thread/Create_New_Thread)
-- [Get Thread](https://orchestra.ruska.ai/api#/Thread/Get_Thread)
-- [List Threads](https://orchestra.ruska.ai/api#/Thread/List_Threads)
-- [Add Message](https://orchestra.ruska.ai/api#/Thread/Add_Message_to_Thread)
-- [Delete Thread](https://orchestra.ruska.ai/api#/Thread/Delete_Thread)
+-   [Thread API Reference](https://chat.ruska.ai/api#/Thread)
+-   [Create Thread](https://chat.ruska.ai/api#/Thread/Create_New_Thread)
+-   [Get Thread](https://chat.ruska.ai/api#/Thread/Get_Thread)
+-   [List Threads](https://chat.ruska.ai/api#/Thread/List_Threads)
+-   [Add Message](https://chat.ruska.ai/api#/Thread/Add_Message_to_Thread)
+-   [Delete Thread](https://chat.ruska.ai/api#/Thread/Delete_Thread)
 
 ## Related Documentation
 
-- **[Assistants](../assistants/index.md)**: Pre-configure threads with specific behaviors
-- **[Storage](../storage/index.md)**: Manage files and documents
-- **[Tools](../tools/tools.md)**: Extend thread capabilities with integrations
-- **[Getting Started](../getting-started.md)**: Learn the basics of using threads
+-   **[Assistants](../assistants/index.md)**: Pre-configure threads with specific behaviors
+-   **[Storage](../storage/index.md)**: Manage files and documents
+-   **[Tools](../tools/tools.md)**: Extend thread capabilities with integrations
+-   **[Getting Started](../getting-started.md)**: Learn the basics of using threads
 
 ---
 

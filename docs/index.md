@@ -5,12 +5,12 @@ description: Composable agent infrastructure built on LangGraph with MCP and A2A
 
 # Orchestra Docs
 
-[![Join Discord](https://img.shields.io/badge/Join-Discord-purple)](https://discord.com/invite/QRfjg4YNzU)
-[![View API Docs](https://img.shields.io/badge/View-API%20Docs-blue)](https://orchestra.ruska.ai/api)
+[![Join Slack](https://img.shields.io/badge/Join-Slack-4A154B?logo=slack&logoColor=white)](https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg)
+[![View API Docs](https://img.shields.io/badge/View-API%20Docs-blue)](https://chat.ruska.ai/docs)
 [![Follow Social](https://img.shields.io/badge/Follow-Social-black)](https://ruska.ai/socials)
 
 :::info Living Documentation
-This documentation is actively maintained and continuously updated as Orchestra evolves. Features, APIs, and best practices are regularly refined. For the most current information, check back frequently or join our [Discord community](https://discord.com/invite/QRfjg4YNzU).
+This documentation is actively maintained and continuously updated as Orchestra evolves. Features, APIs, and best practices are regularly refined. For the most current information, check back frequently or join our [Slack community](https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg).
 :::
 
 Orchestra is a composable AI agent infrastructure built on LangGraph and powered by the [MCP](https://github.com/modelcontextprotocol) & [A2A](https://github.com/google/A2A) protocols by [Ruska Labs](https://ruska.ai).
@@ -84,9 +84,9 @@ Ready to get started? Follow our [Getting Started Guide](getting-started.md) to:
 
 ## Community & Support
 
--   **[Discord](https://discord.com/invite/QRfjg4YNzU)**: Join our community for discussions and support
+-   **[Slack](https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg)**: Join our community for discussions and support
 -   **[GitHub](https://github.com/ruska-ai)**: Contribute to Ruska Labs projects
--   **[API Documentation](https://orchestra.ruska.ai/api)**: Complete API reference and interactive docs
+-   **[API Documentation](https://chat.ruska.ai/docs)**: Complete API reference and interactive docs
 -   **[Social Media](https://ruska.ai/socials)**: Follow us for updates and news
 
 ---

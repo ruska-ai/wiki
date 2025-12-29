@@ -6,7 +6,7 @@ slug: /tools/mcp
 # Model Context Protocol [(MCP)](https://modelcontextprotocol.io/introduction)
 
 [![Join Discord](https://img.shields.io/badge/Join-Discord-purple)](https://discord.com/invite/QRfjg4YNzU)
-[![View API Docs](https://img.shields.io/badge/View-API%20Docs-blue)](https://orchestra.ruska.ai/api)
+[![View API Docs](https://img.shields.io/badge/View-API%20Docs-blue)](https://chat.ruska.ai/api)
 [![Follow Social](https://img.shields.io/badge/Follow-Social-black)](https://ruska.ai/socials)
 
 :::info Actively Evolving
@@ -112,7 +112,7 @@ Once MCP servers are configured, you can selectively enable specific tools from 
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/assistant' \
+  'https://chat.ruska.ai/api/assistant' \
   -H 'Content-Type: application/json' \
   -d '{
   "name": "Weather Assistant",
@@ -130,13 +130,13 @@ curl -X 'POST' \
 
 This assistant has access to the `get_weather` tool from the MCP server and the built-in `search` tool, but NOT other tools the weather server might expose.
 
-## Example [API Usage](https://orchestra.ruska.ai/api#/Thread/Create_New_Thread_api_threads_post):
+## Example [API Usage](https://chat.ruska.ai/api#/Thread/Create_New_Thread_api_threads_post):
 
 #### GET MCP server information
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/tools/mcp/info' \
+  'https://chat.ruska.ai/api/tools/mcp/info' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -156,14 +156,14 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/llm/thread' \
+  'https://chat.ruska.ai/api/llm/thread' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
   "images": [],
   "mcp": {
     "ruska_mcp": {
-      "headers": {  
+      "headers": {
         "x-api-key": "your_api_key"
       },
       "transport": "http",

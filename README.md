@@ -21,8 +21,7 @@
 
 Standalone Docusaurus site for Orchestra documentation, deployed independently on Netlify.
 
-<a href="https://discord.com/invite/QRfjg4YNzU"><img src="https://img.shields.io/badge/Join-Discord-purple"></a>
-<a href="https://orchestra.ruska.ai/api"><img src="https://img.shields.io/badge/View-API Docs-blue"></a>
+<a href="https://chat.ruska.ai/docs"><img src="https://img.shields.io/badge/View-API Docs-blue"></a>
 <a href="https://ruska.ai/socials"><img src="https://img.shields.io/badge/Follow-Social-black"></a>
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](../LICENSE)
 [![DCO](https://img.shields.io/badge/DCO-1.1-yellow)](../DCO)

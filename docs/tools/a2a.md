@@ -5,8 +5,8 @@ slug: /tools/a2a
 
 # Agent-to-Agent [(A2A)](https://github.com/ruska-ai/a2a-langgraph)
 
-[![Join Discord](https://img.shields.io/badge/Join-Discord-purple)](https://discord.com/invite/QRfjg4YNzU)
-[![View API Docs](https://img.shields.io/badge/View-API%20Docs-blue)](https://orchestra.ruska.ai/api)
+[![Join Slack](https://img.shields.io/badge/Join-Slack-4A154B?logo=slack&logoColor=white)](https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg)
+[![View API Docs](https://img.shields.io/badge/View-API%20Docs-blue)](https://chat.ruska.ai/docs)
 [![Follow Social](https://img.shields.io/badge/Follow-Social-black)](https://ruska.ai/socials)
 
 :::warning Under Development
@@ -43,13 +43,13 @@ Ruska Labs A2A support is based on the [LangGraph Currency Agent w/ A2A Protocol
 
     ![A2A Tool Execution](https://github.com/ryaneggz/static/blob/main/enso/a2a-tool.png?raw=true)
 
-## Example [API Usage](https://orchestra.ruska.ai/api#/Thread/Create_New_Thread_api_threads_post):
+## Example [API Usage](https://chat.ruska.ai/api#/Thread/Create_New_Thread_api_threads_post):
 
 #### Fetch A2A Server Information
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/tools/a2a/info' \
+  'https://chat.ruska.ai/api/tools/a2a/info' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -66,7 +66,7 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread' \
+  'https://chat.ruska.ai/api/thread' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{

@@ -19,7 +19,7 @@ Welcome to Orchestra! This guide will walk you through your first steps with the
 
 Before you begin, ensure you have:
 
--   Access to an Orchestra instance (e.g., `https://orchestra.ruska.ai`)
+-   Access to an Orchestra instance (e.g., `https://chat.ruska.ai`)
 -   User account credentials
 -   A modern web browser
 
@@ -177,7 +177,7 @@ Now that you've sent your first message, explore these features:
 
 Orchestra provides a full REST API that mirrors the OpenAI Assistants API:
 
--   [API Documentation](https://orchestra.ruska.ai/api): Interactive API reference
+-   [API Documentation](https://chat.ruska.ai/docs): Interactive API reference
 -   Create threads programmatically
 -   Build custom integrations
 -   Deploy AI agents at scale
@@ -185,8 +185,8 @@ Orchestra provides a full REST API that mirrors the OpenAI Assistants API:
 ### Advanced Features
 
 -   **[Storage & RAG](storage/index.md)**: Upload documents for retrieval-augmented generation
--   **[Projects](https://orchestra.ruska.ai/api#/Project)**: Organize document indexes for knowledge bases
--   **[Prompts](https://orchestra.ruska.ai/api#/Prompt)**: Create reusable prompt templates
+-   **[Projects](https://chat.ruska.ai/api#/Project)**: Organize document indexes for knowledge bases
+-   **[Prompts](https://chat.ruska.ai/api#/Prompt)**: Create reusable prompt templates
 
 ## Tips for Success
 
@@ -203,10 +203,10 @@ MCP and A2A integrations require configuration before use. See the respective to
 
 If you encounter issues or have questions:
 
--   **[Discord Community](https://discord.com/invite/QRfjg4YNzU)**: Get help from the community
+-   **[Slack Community](https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg)**: Get help from the community
 -   **[GitHub Issues](https://github.com/ruska-ai)**: Report bugs or request features
--   **[API Docs](https://orchestra.ruska.ai/api)**: Detailed technical reference
+-   **[API Docs](https://chat.ruska.ai/api)**: Detailed technical reference
 
 ---
 
-**Ready to build?** Start exploring [Assistants](assistants/index.md) or dive into the [API Documentation](https://orchestra.ruska.ai/api).
+**Ready to build?** Start exploring [Assistants](assistants/index.md) or dive into the [API Documentation](https://chat.ruska.ai/docs).

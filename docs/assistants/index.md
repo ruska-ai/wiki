@@ -12,10 +12,10 @@ Assistants are pre-configured AI agents with specific instructions, tools, and b
 
 Unlike ad-hoc chat conversations, Assistants maintain consistent behavior across multiple threads and can be configured with:
 
-- **Custom Instructions**: Define the assistant's role, personality, and expertise
-- **Tool Access**: Attach specific tools (search, MCP servers, A2A agents)
-- **Model Selection**: Choose the best model for the assistant's purpose
-- **Reusability**: Use the same assistant across many conversations
+-   **Custom Instructions**: Define the assistant's role, personality, and expertise
+-   **Tool Access**: Attach specific tools (search, MCP servers, A2A agents)
+-   **Model Selection**: Choose the best model for the assistant's purpose
+-   **Reusability**: Use the same assistant across many conversations
 
 ## Key Concepts
 
@@ -25,36 +25,36 @@ Assistants are persistent configurations that define how an AI agent should beha
 
 **Example Assistant Configurations:**
 
-- **Python Tutor**: Specializes in teaching Python, has access to code execution tools
-- **Research Assistant**: Configured with web search, focused on providing cited information
-- **Customer Support Agent**: Has access to company knowledge base via RAG, uses friendly tone
-- **Data Analyst**: Connected to database tools, provides insights and visualizations
+-   **Python Tutor**: Specializes in teaching Python, has access to code execution tools
+-   **Research Assistant**: Configured with web search, focused on providing cited information
+-   **Customer Support Agent**: Has access to company knowledge base via RAG, uses friendly tone
+-   **Data Analyst**: Connected to database tools, provides insights and visualizations
 
 ### Assistants vs Direct Chat
 
-| Feature | Direct Chat | Assistants |
-|---------|-------------|-----------|
+| Feature      | Direct Chat            | Assistants                         |
+| ------------ | ---------------------- | ---------------------------------- |
 | Instructions | One-time system prompt | Persistent, reusable configuration |
-| Tools | Selected per thread | Pre-configured, always available |
-| Consistency | Varies by user input | Consistent behavior across threads |
-| API Access | Limited | Full programmatic control |
-| Use Case | Quick questions | Production deployments |
+| Tools        | Selected per thread    | Pre-configured, always available   |
+| Consistency  | Varies by user input   | Consistent behavior across threads |
+| API Access   | Limited                | Full programmatic control          |
+| Use Case     | Quick questions        | Production deployments             |
 
 ### When to Use Assistants
 
 **Use Assistants when you need:**
 
-- ✅ Consistent behavior across multiple conversations
-- ✅ To deploy AI agents programmatically via API
-- ✅ Specific tool configurations that don't change
-- ✅ Reusable AI personas for common tasks
-- ✅ Team-wide shared AI configurations
+-   ✅ Consistent behavior across multiple conversations
+-   ✅ To deploy AI agents programmatically via API
+-   ✅ Specific tool configurations that don't change
+-   ✅ Reusable AI personas for common tasks
+-   ✅ Team-wide shared AI configurations
 
 **Use Direct Chat when you need:**
 
-- ✅ Quick, one-off questions
-- ✅ Experimentation with different approaches
-- ✅ Flexibility to change tools mid-conversation
+-   ✅ Quick, one-off questions
+-   ✅ Experimentation with different approaches
+-   ✅ Flexibility to change tools mid-conversation
 
 ## Creating an Assistant
 
@@ -63,10 +63,10 @@ Assistants are persistent configurations that define how an AI agent should beha
 1. Click the **Assistants** section in the sidebar
 2. Click **Create New Assistant** or similar action
 3. Configure your assistant:
-   - **Name**: Give your assistant a descriptive name
-   - **Instructions**: Define the assistant's role and behavior
-   - **Model**: Select the AI model to use
-   - **Tools**: Attach search, MCP servers, or A2A agents
+    - **Name**: Give your assistant a descriptive name
+    - **Instructions**: Define the assistant's role and behavior
+    - **Model**: Select the AI model to use
+    - **Tools**: Attach search, MCP servers, or A2A agents
 4. Click **Save**
 
 Your assistant is now ready to use in any new thread.
@@ -77,7 +77,7 @@ Create an assistant programmatically using the REST API:
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/assistant' \
+  'https://chat.ruska.ai/api/assistant' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -92,12 +92,12 @@ curl -X 'POST' \
 
 ```json
 {
-  "id": "asst_abc123",
-  "name": "Python Tutor",
-  "instructions": "You are an expert Python programming tutor...",
-  "model": "anthropic:claude-sonnet-4-5",
-  "tools": ["search"],
-  "created_at": "2025-01-16T10:30:00Z"
+    "id": "asst_abc123",
+    "name": "Python Tutor",
+    "instructions": "You are an expert Python programming tutor...",
+    "model": "anthropic:claude-sonnet-4-5",
+    "tools": ["search"],
+    "created_at": "2025-01-16T10:30:00Z"
 }
 ```
 
@@ -115,7 +115,7 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'https://orchestra.ruska.ai/api/thread' \
+  'https://chat.ruska.ai/api/thread' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -139,7 +139,7 @@ Modify an assistant's configuration at any time:
 
 ```bash
 curl -X 'PATCH' \
-  'https://orchestra.ruska.ai/api/assistant/asst_abc123' \
+  'https://chat.ruska.ai/api/assistant/asst_abc123' \
   -H 'Content-Type: application/json' \
   -d '{
   "instructions": "Updated instructions here...",
@@ -148,7 +148,7 @@ curl -X 'PATCH' \
 ```
 
 !!! warning "Existing Threads"
-    Updating an assistant does not affect existing threads. Only new threads will use the updated configuration.
+Updating an assistant does not affect existing threads. Only new threads will use the updated configuration.
 
 ### Deleting an Assistant
 
@@ -156,7 +156,7 @@ Remove an assistant when no longer needed:
 
 ```bash
 curl -X 'DELETE' \
-  'https://orchestra.ruska.ai/api/assistant/asst_abc123'
+  'https://chat.ruska.ai/api/assistant/asst_abc123'
 ```
 
 ### Listing Your Assistants
@@ -165,7 +165,7 @@ Get all assistants in your account:
 
 ```bash
 curl -X 'GET' \
-  'https://orchestra.ruska.ai/api/assistants' \
+  'https://chat.ruska.ai/api/assistants' \
   -H 'accept: application/json'
 ```
 
@@ -177,31 +177,32 @@ Assistants can be configured with multiple tools:
 
 ```json
 {
-  "name": "Research Assistant",
-  "instructions": "You are a research assistant...",
-  "model": "anthropic:claude-sonnet-4-5",
-  "tools": ["search"],
-  "mcp": {
-    "ruska_mcp": {
-      "url": "https://chat.ruska.ai/mcp",
-      "headers": {
-        "x-api-key": "your_api_key"
-      }
+    "name": "Research Assistant",
+    "instructions": "You are a research assistant...",
+    "model": "anthropic:claude-sonnet-4-5",
+    "tools": ["search"],
+    "mcp": {
+        "ruska_mcp": {
+            "url": "https://chat.ruska.ai/mcp",
+            "headers": {
+                "x-api-key": "your_api_key"
+            }
+        }
+    },
+    "a2a": {
+        "ruska_a2a": {
+            "base_url": "https://a2a.ruska.ai",
+            "agent_card_path": "/.well-known/agent.json"
+        }
     }
-  },
-  "a2a": {
-    "ruska_a2a": {
-      "base_url": "https://a2a.ruska.ai",
-      "agent_card_path": "/.well-known/agent.json"
-    }
-  }
 }
 ```
 
 This assistant has access to:
-- Built-in search tool
-- MCP server tools
-- A2A agent capabilities
+
+-   Built-in search tool
+-   MCP server tools
+-   A2A agent capabilities
 
 ### Metadata for System Prompts
 
@@ -209,56 +210,52 @@ The `metadata` property supports three fields that are automatically appended to
 
 ```json
 {
-  "name": "Marketing Copy Writer",
-  "instructions": "You are a professional copywriter...",
-  "model": "anthropic:claude-sonnet-4-5",
-  "metadata": {
-    "current_utc": "2025-01-16T10:00:00Z",
-    "timezone": "America/Los_Angeles",
-    "language": "en-US"
-  }
+    "name": "Marketing Copy Writer",
+    "instructions": "You are a professional copywriter...",
+    "model": "anthropic:claude-sonnet-4-5",
+    "metadata": {
+        "current_utc": "2025-01-16T10:00:00Z",
+        "timezone": "America/Los_Angeles",
+        "language": "en-US"
+    }
 }
 ```
 
 **Supported metadata fields:**
 
-- **`current_utc`**: Current timestamp (ISO 8601 format) - useful for time-aware responses
-- **`timezone`**: User's timezone (e.g., "America/Denver", "Europe/London")
-- **`language`**: User's language preference (e.g., "en-US", "es-ES", "fr-FR")
+-   **`current_utc`**: Current timestamp (ISO 8601 format) - useful for time-aware responses
+-   **`timezone`**: User's timezone (e.g., "America/Denver", "Europe/London")
+-   **`language`**: User's language preference (e.g., "en-US", "es-ES", "fr-FR")
 
 These values are appended to the end of the system prompt, providing context to the AI model.
 
 ### Scheduled Assistants
 
-Combine assistants with the [Schedules API](https://orchestra.ruska.ai/api#/Schedule) to create recurring agent tasks:
+Combine assistants with the [Schedules API](https://chat.ruska.ai/api#/Schedule) to create recurring agent tasks:
 
-- Daily report generation
-- Periodic data analysis
-- Automated monitoring and alerts
-- Content publication workflows
+-   Daily report generation
+-   Periodic data analysis
+-   Automated monitoring and alerts
+-   Content publication workflows
 
 See the **Schedules** section in your user settings for more information.
 
 ## Best Practices
 
 !!! tip "Clear Instructions"
-    Be specific in your instructions. Instead of "helpful assistant," try "You are a technical documentation writer who explains complex topics simply, uses examples, and always includes code snippets."
+Be specific in your instructions. Instead of "helpful assistant," try "You are a technical documentation writer who explains complex topics simply, uses examples, and always includes code snippets."
 
 !!! tip "Model Selection"
-    Match the model to the task:
-    - **Haiku**: Quick responses, simple tasks, high volume
-    - **Sonnet**: Complex reasoning, coding, analysis
-    - **Opus**: Most capable, but slower and more expensive
-    - **GPT-4o**: Multi-modal (text + images)
+Match the model to the task: - **Haiku**: Quick responses, simple tasks, high volume - **Sonnet**: Complex reasoning, coding, analysis - **Opus**: Most capable, but slower and more expensive - **GPT-4o**: Multi-modal (text + images)
 
 !!! tip "Tool Scoping"
-    Only attach tools the assistant actually needs. Fewer tools = faster responses and lower costs.
+Only attach tools the assistant actually needs. Fewer tools = faster responses and lower costs.
 
 !!! info "Version Control"
-    Use metadata to track assistant versions. When updating instructions, consider creating a new assistant rather than modifying production ones.
+Use metadata to track assistant versions. When updating instructions, consider creating a new assistant rather than modifying production ones.
 
 !!! warning "API Keys in Tools"
-    Store sensitive credentials (MCP keys, A2A tokens) securely. Never commit them to version control.
+Store sensitive credentials (MCP keys, A2A tokens) securely. Never commit them to version control.
 
 ## Examples
 
@@ -266,10 +263,10 @@ See the **Schedules** section in your user settings for more information.
 
 ```json
 {
-  "name": "Code Reviewer",
-  "instructions": "You are an expert code reviewer. Analyze code for:\n- Bugs and logic errors\n- Performance issues\n- Security vulnerabilities\n- Code style and best practices\n\nProvide specific, actionable feedback with examples.",
-  "model": "anthropic:claude-sonnet-4-5",
-  "tools": []
+    "name": "Code Reviewer",
+    "instructions": "You are an expert code reviewer. Analyze code for:\n- Bugs and logic errors\n- Performance issues\n- Security vulnerabilities\n- Code style and best practices\n\nProvide specific, actionable feedback with examples.",
+    "model": "anthropic:claude-sonnet-4-5",
+    "tools": []
 }
 ```
 
@@ -277,10 +274,10 @@ See the **Schedules** section in your user settings for more information.
 
 ```json
 {
-  "name": "Support Agent",
-  "instructions": "You are a friendly customer support agent. Use the knowledge base to answer questions accurately. If you don't know, escalate to a human agent. Always be empathetic and solution-focused.",
-  "model": "openai:gpt-4o",
-  "tools": ["search"]
+    "name": "Support Agent",
+    "instructions": "You are a friendly customer support agent. Use the knowledge base to answer questions accurately. If you don't know, escalate to a human agent. Always be empathetic and solution-focused.",
+    "model": "openai:gpt-4o",
+    "tools": ["search"]
 }
 ```
 
@@ -288,15 +285,15 @@ See the **Schedules** section in your user settings for more information.
 
 ```json
 {
-  "name": "Data Analyst",
-  "instructions": "You are a data analyst specialized in business intelligence. Analyze data, create insights, and suggest actionable recommendations. Use visualizations when helpful.",
-  "model": "anthropic:claude-sonnet-4-5",
-  "a2a": {
-    "sql_agent": {
-      "base_url": "https://sql-agent.example.com",
-      "agent_card_path": "/.well-known/agent.json"
+    "name": "Data Analyst",
+    "instructions": "You are a data analyst specialized in business intelligence. Analyze data, create insights, and suggest actionable recommendations. Use visualizations when helpful.",
+    "model": "anthropic:claude-sonnet-4-5",
+    "a2a": {
+        "sql_agent": {
+            "base_url": "https://sql-agent.example.com",
+            "agent_card_path": "/.well-known/agent.json"
+        }
     }
-  }
 }
 ```
 
@@ -304,19 +301,19 @@ See the **Schedules** section in your user settings for more information.
 
 For complete API documentation, see:
 
-- [Assistant API Reference](https://orchestra.ruska.ai/api#/Assistant)
-- [Create Assistant](https://orchestra.ruska.ai/api#/Assistant/Create_Assistant)
-- [Update Assistant](https://orchestra.ruska.ai/api#/Assistant/Update_Assistant)
-- [Delete Assistant](https://orchestra.ruska.ai/api#/Assistant/Delete_Assistant)
-- [List Assistants](https://orchestra.ruska.ai/api#/Assistant/List_Assistants)
+-   [Assistant API Reference](https://chat.ruska.ai/api#/Assistant)
+-   [Create Assistant](https://chat.ruska.ai/api#/Assistant/Create_Assistant)
+-   [Update Assistant](https://chat.ruska.ai/api#/Assistant/Update_Assistant)
+-   [Delete Assistant](https://chat.ruska.ai/api#/Assistant/Delete_Assistant)
+-   [List Assistants](https://chat.ruska.ai/api#/Assistant/List_Assistants)
 
 ## Related Documentation
 
-- **[Threads](../threads/index.md)**: Learn about conversation management
-- **[Tools](../tools/tools.md)**: Explore available tool integrations
-- **[MCP Integration](../tools/mcp.md)**: Connect Model Context Protocol servers
-- **[A2A Integration](../tools/a2a.md)**: Enable agent-to-agent communication
-- **[Storage](../storage/index.md)**: Add knowledge bases to your assistants
+-   **[Threads](../threads/index.md)**: Learn about conversation management
+-   **[Tools](../tools/tools.md)**: Explore available tool integrations
+-   **[MCP Integration](../tools/mcp.md)**: Connect Model Context Protocol servers
+-   **[A2A Integration](../tools/a2a.md)**: Enable agent-to-agent communication
+-   **[Storage](../storage/index.md)**: Add knowledge bases to your assistants
 
 ---
 
