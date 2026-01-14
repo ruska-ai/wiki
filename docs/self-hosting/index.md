@@ -57,34 +57,45 @@ GROQ_API_KEY=your-groq-api-key
 
 #### AWS Bedrock
 
-AWS Bedrock requires AWS credentials and a region configuration. Bedrock models are enabled when `AWS_BEDROCK_REGION` is set.
+AWS Bedrock requires AWS credentials. Bedrock models are enabled when `AWS_BEARER_TOKEN_BEDROCK` is set to any value.
 
 ```bash
-# Enable Bedrock by setting the region
-AWS_BEDROCK_REGION=us-east-1
+# Enable Bedrock (set to any value to enable)
+AWS_BEARER_TOKEN_BEDROCK=enabled
 
 # AWS credentials (choose one method)
 # Method 1: Environment variables
 AWS_ACCESS_KEY_ID=your-aws-access-key
 AWS_SECRET_ACCESS_KEY=your-aws-secret-key
+AWS_DEFAULT_REGION=us-east-1
 
 # Method 2: AWS credentials file (~/.aws/credentials)
 # Method 3: IAM roles (for EC2/ECS/Lambda deployments)
 ```
 
+**Important: Inference Profiles**
+
+Claude 4.5 and newer models require [inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) instead of direct model IDs. The model IDs include a regional prefix:
+
+- `us.` - US regions (us-east-1, us-west-2, etc.)
+- `eu.` - EU regions (eu-west-1, eu-central-1, etc.)
+- `apac.` - Asia Pacific regions
+
+Orchestra defaults to US inference profiles. For other regions, you may need to customize the model IDs.
+
 **Available Bedrock Models:**
 
-| Model | ID |
+| Model | ID (US Region) |
 |-------|-----|
-| Claude 4.5 Sonnet | `bedrock_converse:anthropic.claude-sonnet-4-5-20250929-v1:0` |
-| Claude 4.5 Haiku | `bedrock_converse:anthropic.claude-haiku-4-5-20251001-v1:0` |
-| Claude 4.5 Opus | `bedrock_converse:anthropic.claude-opus-4-5-20251101-v1:0` |
-| Kimi K2 Thinking | `bedrock_converse:moonshot.kimi-k2-thinking` |
-| Claude 3.5 Sonnet | `bedrock_converse:anthropic.claude-3-5-sonnet-20241022-v2:0` |
-| Claude 3.5 Haiku | `bedrock_converse:anthropic.claude-3-5-haiku-20241022-v1:0` |
+| Claude 4.5 Sonnet | `bedrock_converse:us.anthropic.claude-sonnet-4-5-20250929-v1:0` |
+| Claude 4.5 Haiku | `bedrock_converse:us.anthropic.claude-haiku-4-5-20251001-v1:0` |
+| Claude 4.5 Opus | `bedrock_converse:us.anthropic.claude-opus-4-5-20251101-v1:0` |
+| Kimi K2 Thinking | `bedrock_converse:us.moonshot.kimi-k2-thinking` |
+| Claude 3.5 Sonnet | `bedrock_converse:us.anthropic.claude-3-5-sonnet-20241022-v2:0` |
+| Claude 3.5 Haiku | `bedrock_converse:us.anthropic.claude-3-5-haiku-20241022-v1:0` |
 | Titan Text Premier | `bedrock_converse:amazon.titan-text-premier-v1:0` |
-| Llama 3.2 90B | `bedrock_converse:meta.llama3-2-90b-instruct-v1:0` |
-| Mistral Large | `bedrock_converse:mistral.mistral-large-2407-v1:0` |
+| Llama 3.2 90B | `bedrock_converse:us.meta.llama3-2-90b-instruct-v1:0` |
+| Mistral Large | `bedrock_converse:us.mistral.mistral-large-2407-v1:0` |
 
 **IAM Policy Requirements:**
 
@@ -100,7 +111,10 @@ Your AWS credentials need permissions for Bedrock model invocation:
         "bedrock:InvokeModel",
         "bedrock:InvokeModelWithResponseStream"
       ],
-      "Resource": "arn:aws:bedrock:*::foundation-model/*"
+      "Resource": [
+        "arn:aws:bedrock:*::foundation-model/*",
+        "arn:aws:bedrock:*:*:inference-profile/*"
+      ]
     }
   ]
 }
@@ -161,14 +175,15 @@ For AWS Bedrock specifically, you should see models prefixed with `bedrock_conve
 
 ### AWS Bedrock Models Not Appearing
 
-1. Verify `AWS_BEDROCK_REGION` is set
+1. Verify `AWS_BEARER_TOKEN_BEDROCK` is set
 2. Check AWS credentials are configured (env vars, credentials file, or IAM role)
 3. Ensure your AWS account has Bedrock model access enabled in the AWS Console
 4. Verify the IAM policy includes `bedrock:InvokeModel` permissions
 
 ### Model Invocation Errors
 
-- **AccessDeniedException**: Check IAM permissions
+- **ValidationException: "Invocation with on-demand throughput isn't supported"**: Claude 4.5 models require inference profiles. Ensure model IDs have the regional prefix (e.g., `us.anthropic.claude-sonnet-4-5-...`)
+- **AccessDeniedException**: Check IAM permissions include both `foundation-model/*` and `inference-profile/*` resources
 - **ResourceNotFoundException**: The model may not be available in your region
 - **ThrottlingException**: You've hit API rate limits; implement backoff or request limit increase
 
