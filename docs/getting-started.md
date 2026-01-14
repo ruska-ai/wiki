@@ -54,6 +54,8 @@ At the top of the chat interface, you'll see a model dropdown. Orchestra support
 -   **Google**: Gemini models
 -   **xAI**: Grok models
 -   **Groq**: Fast inference models
+-   **AWS Bedrock**: Claude, Titan, Llama, Mistral, Kimi K2 (requires AWS credentials)
+-   **Ollama**: Local models (self-hosted)
 
 Click the dropdown and select your preferred model. For most use cases, we recommend:
 

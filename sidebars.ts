@@ -4,6 +4,7 @@ const sidebars: SidebarsConfig = {
   docs: [
     "index",
     "getting-started",
+    "self-hosting/index",
     {
       type: "category",
       label: "Core Features",
