@@ -13,7 +13,12 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Tools & Integrations",
-      items: ["tools/tools", "tools/search", "tools/mcp", "tools/sandbox", "tools/sandbox-tutorial", "tools/a2a"],
+      items: ["tools/tools", "tools/search", "tools/mcp", "tools/sandbox", "tools/a2a"],
+    },
+    {
+      type: "category",
+      label: "Tutorials",
+      items: ["tools/sandbox-tutorial"],
     },
   ],
 };
