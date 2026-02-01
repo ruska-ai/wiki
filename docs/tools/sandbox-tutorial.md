@@ -34,67 +34,37 @@ You should see `"status":"ok"` in the response. If the health check fails, refer
 
 ## Step 2: Open MCP Configuration
 
-1. In Orchestra, open the **Tool Selector** modal.
-2. Click the MCP icon to open the **Add MCP Configuration** panel.
+1. Navigate to your assistant's page and click the **Config** tab.
+2. Click **Edit**, then click **Manage Tools**.
+3. In the Tool Selection modal, click the **MCP Servers** tab.
 
-This panel contains a JSON editor where you define your MCP server connections.
+This panel shows your configured MCP servers and lets you add new ones.
 
 ![MCP Servers Tab](https://github.com/ryaneggz/static/blob/main/enso/sandbox-tutorial-mcp-tab.png?raw=true)
 
 ## Step 3: Add the Sandbox MCP Server
 
-Paste the following JSON configuration into the editor:
+Click **Add Server** and fill in the form:
 
-**If Orchestra and the sandbox are on the same Docker network** (e.g., using `docker-compose`):
-
-```json
-{
-    "mcp": {
-        "exec_server": {
-            "transport": "streamable_http",
-            "url": "http://exec_server:3005/mcp",
-            "headers": {}
-        }
-    }
-}
-```
-
-**If running the sandbox on your local machine** (outside Docker or for local development):
-
-```json
-{
-    "mcp": {
-        "exec_server": {
-            "transport": "streamable_http",
-            "url": "http://localhost:3005/mcp",
-            "headers": {}
-        }
-    }
-}
-```
+| Field | Value |
+| ----- | ----- |
+| **Server Name** | `ubuntu-sandbox` |
+| **Transport** | `Streamable HTTP` |
+| **URL** | `http://localhost:3005/mcp` |
 
 :::tip When to use which URL
 - Use `http://exec_server:3005/mcp` when both Orchestra and the sandbox are running in Docker containers on the same network (the default for `docker-compose` deployments).
 - Use `http://localhost:3005/mcp` when the sandbox is running on your host machine and Orchestra is accessing it directly.
 :::
 
-If your sandbox has `API_KEY` set, include the key in the `headers`:
+If your sandbox has `API_KEY` set, add the key in the **Header Key** / **Header Value** fields:
 
-```json
-{
-    "mcp": {
-        "exec_server": {
-            "transport": "streamable_http",
-            "url": "http://exec_server:3005/mcp",
-            "headers": {
-                "x-api-key": "your_api_key"
-            }
-        }
-    }
-}
-```
+| Field | Value |
+| ----- | ----- |
+| **Header Key** | `x-api-key` |
+| **Header Value** | `your_api_key` |
 
-Click **Save Configuration** to store the settings.
+Click **Add Server** to save the configuration.
 
 ![MCP Config Form](https://github.com/ryaneggz/static/blob/main/enso/sandbox-tutorial-config.png?raw=true)
 
