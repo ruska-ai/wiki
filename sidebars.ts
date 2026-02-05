@@ -23,7 +23,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Tutorials",
-      items: ["tools/sandbox-tutorial", "tutorials/interactive-tours"],
+      items: ["tools/sandbox-tutorial", "tutorials/agents-md-workflow"],
     },
   ],
 };

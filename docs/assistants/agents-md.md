@@ -28,8 +28,8 @@ When `AGENTS.md` is detected, it takes priority over any legacy `instructions` o
 5. Write your instructions in Markdown format
 6. Click **Save** to create the assistant
 
-:::tip First-Time Tour
-When you first visit the assistant create page, an interactive guided tour walks you through the AGENTS.md workflow step by step. You can re-trigger it anytime by clicking the **Show Tour** link next to the guidance note.
+:::tip Step-by-Step Guide
+For a detailed walkthrough with screenshots, see the [AGENTS.md Workflow Guide](../tutorials/agents-md-workflow.md).
 :::
 
 ### For an Existing Assistant
