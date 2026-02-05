@@ -8,7 +8,12 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Core Features",
-      items: ["assistants/index", "threads/index", "storage/index"],
+      items: [
+        "assistants/index",
+        "assistants/agents-md",
+        "threads/index",
+        "storage/index",
+      ],
     },
     {
       type: "category",
