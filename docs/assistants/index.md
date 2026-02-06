@@ -12,7 +12,7 @@ Assistants are pre-configured AI agents with specific instructions, tools, and b
 
 Unlike ad-hoc chat conversations, Assistants maintain consistent behavior across multiple threads and can be configured with:
 
--   **Custom Instructions**: Define the assistant's role, personality, and expertise
+-   **Custom Instructions**: Define the assistant's role, personality, and expertise via [AGENTS.md files](./agents-md.md) or legacy instruction fields
 -   **Tool Access**: Attach specific tools (search, MCP servers, A2A agents)
 -   **Model Selection**: Choose the best model for the assistant's purpose
 -   **Reusability**: Use the same assistant across many conversations
@@ -34,7 +34,7 @@ Assistants are persistent configurations that define how an AI agent should beha
 
 | Feature      | Direct Chat            | Assistants                         |
 | ------------ | ---------------------- | ---------------------------------- |
-| Instructions | One-time system prompt | Persistent, reusable configuration |
+| Instructions | One-time system prompt | Persistent via [AGENTS.md](./agents-md.md) files |
 | Tools        | Selected per thread    | Pre-configured, always available   |
 | Consistency  | Varies by user input   | Consistent behavior across threads |
 | API Access   | Limited                | Full programmatic control          |
@@ -64,16 +64,20 @@ Assistants are persistent configurations that define how an AI agent should beha
 2. Click **Create New Assistant** or similar action
 3. Configure your assistant:
     - **Name**: Give your assistant a descriptive name
-    - **Instructions**: Define the assistant's role and behavior
     - **Model**: Select the AI model to use
     - **Tools**: Attach search, MCP servers, or A2A agents
-4. Click **Save**
+4. Switch to the **Editor** view in the file panel and create an `AGENTS.md` file to define the assistant's instructions (see [AGENTS.md: File-Based Instructions](./agents-md.md) for details)
+5. Click **Save**
 
 Your assistant is now ready to use in any new thread.
 
+:::tip File-Based Instructions
+Orchestra uses `AGENTS.md` files for assistant instructions — similar to how Claude Code uses `CLAUDE.md`. This approach makes your agent configuration version-controllable and composable. See the [AGENTS.md guide](./agents-md.md) for the full workflow.
+:::
+
 ### Via API
 
-Create an assistant programmatically using the REST API:
+Create an assistant programmatically using the REST API. Use the `files` dictionary with an `AGENTS.md` key to define instructions:
 
 ```bash
 curl -X 'POST' \
@@ -82,9 +86,11 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d '{
   "name": "Python Tutor",
-  "instructions": "You are an expert Python programming tutor. You explain concepts clearly, provide working code examples, and help debug issues step-by-step. Always use best practices and explain why.",
   "model": "anthropic:claude-sonnet-4-5",
-  "tools": ["search"]
+  "tools": ["search"],
+  "files": {
+    "AGENTS.md": "# Python Tutor\n\nYou are an expert Python programming tutor. You explain concepts clearly, provide working code examples, and help debug issues step-by-step. Always use best practices and explain why."
+  }
 }'
 ```
 
@@ -94,12 +100,18 @@ curl -X 'POST' \
 {
     "id": "asst_abc123",
     "name": "Python Tutor",
-    "instructions": "You are an expert Python programming tutor...",
     "model": "anthropic:claude-sonnet-4-5",
     "tools": ["search"],
+    "files": {
+        "AGENTS.md": "# Python Tutor\n\nYou are an expert Python programming tutor..."
+    },
     "created_at": "2025-01-16T10:30:00Z"
 }
 ```
+
+:::info Legacy `instructions` Field
+You can still use the `instructions` field directly, but `AGENTS.md` in `files` takes priority when both are present. See [AGENTS.md: File-Based Instructions](./agents-md.md) for the full precedence rules.
+:::
 
 ## Using Assistants
 
@@ -135,14 +147,16 @@ The thread will inherit the assistant's configuration (instructions, tools, mode
 
 ### Updating an Assistant
 
-Modify an assistant's configuration at any time:
+Modify an assistant's configuration at any time. Update the `AGENTS.md` file in the `files` dictionary:
 
 ```bash
 curl -X 'PATCH' \
   'https://chat.ruska.ai/api/assistant/asst_abc123' \
   -H 'Content-Type: application/json' \
   -d '{
-  "instructions": "Updated instructions here...",
+  "files": {
+    "AGENTS.md": "# Updated Instructions\n\nNew instructions content here..."
+  },
   "tools": ["search", "mcp_server_1"]
 }'
 ```
@@ -178,9 +192,11 @@ Assistants can be configured with multiple tools:
 ```json
 {
     "name": "Research Assistant",
-    "instructions": "You are a research assistant...",
     "model": "anthropic:claude-sonnet-4-5",
     "tools": ["search"],
+    "files": {
+        "AGENTS.md": "# Research Assistant\n\nYou are a research assistant..."
+    },
     "mcp": {
         "ruska_mcp": {
             "url": "https://chat.ruska.ai/mcp",
@@ -211,8 +227,10 @@ The `metadata` property supports three fields that are automatically appended to
 ```json
 {
     "name": "Marketing Copy Writer",
-    "instructions": "You are a professional copywriter...",
     "model": "anthropic:claude-sonnet-4-5",
+    "files": {
+        "AGENTS.md": "# Marketing Copy Writer\n\nYou are a professional copywriter..."
+    },
     "metadata": {
         "current_utc": "2025-01-16T10:00:00Z",
         "timezone": "America/Los_Angeles",
@@ -243,7 +261,7 @@ See the **Schedules** section in your user settings for more information.
 ## Best Practices
 
 !!! tip "Clear Instructions"
-Be specific in your instructions. Instead of "helpful assistant," try "You are a technical documentation writer who explains complex topics simply, uses examples, and always includes code snippets."
+Be specific in your AGENTS.md. Instead of "helpful assistant," try "You are a technical documentation writer who explains complex topics simply, uses examples, and always includes code snippets." See the [AGENTS.md guide](./agents-md.md) for writing tips.
 
 !!! tip "Model Selection"
 Match the model to the task: - **Haiku**: Quick responses, simple tasks, high volume - **Sonnet**: Complex reasoning, coding, analysis - **Opus**: Most capable, but slower and more expensive - **GPT-4o**: Multi-modal (text + images)
@@ -252,7 +270,7 @@ Match the model to the task: - **Haiku**: Quick responses, simple tasks, high vo
 Only attach tools the assistant actually needs. Fewer tools = faster responses and lower costs.
 
 !!! info "Version Control"
-Use metadata to track assistant versions. When updating instructions, consider creating a new assistant rather than modifying production ones.
+Since AGENTS.md is a file, you can store it in Git alongside your project code. This gives you version history, team review, and reproducible agent configurations.
 
 !!! warning "API Keys in Tools"
 Store sensitive credentials (MCP keys, A2A tokens) securely. Never commit them to version control.
@@ -264,9 +282,11 @@ Store sensitive credentials (MCP keys, A2A tokens) securely. Never commit them t
 ```json
 {
     "name": "Code Reviewer",
-    "instructions": "You are an expert code reviewer. Analyze code for:\n- Bugs and logic errors\n- Performance issues\n- Security vulnerabilities\n- Code style and best practices\n\nProvide specific, actionable feedback with examples.",
     "model": "anthropic:claude-sonnet-4-5",
-    "tools": []
+    "tools": [],
+    "files": {
+        "AGENTS.md": "# Code Reviewer\n\nYou are an expert code reviewer. Analyze code for:\n- Bugs and logic errors\n- Performance issues\n- Security vulnerabilities\n- Code style and best practices\n\nProvide specific, actionable feedback with examples."
+    }
 }
 ```
 
@@ -275,9 +295,11 @@ Store sensitive credentials (MCP keys, A2A tokens) securely. Never commit them t
 ```json
 {
     "name": "Support Agent",
-    "instructions": "You are a friendly customer support agent. Use the knowledge base to answer questions accurately. If you don't know, escalate to a human agent. Always be empathetic and solution-focused.",
     "model": "openai:gpt-4o",
-    "tools": ["search"]
+    "tools": ["search"],
+    "files": {
+        "AGENTS.md": "# Support Agent\n\nYou are a friendly customer support agent. Use the knowledge base to answer questions accurately. If you don't know, escalate to a human agent. Always be empathetic and solution-focused."
+    }
 }
 ```
 
@@ -286,8 +308,10 @@ Store sensitive credentials (MCP keys, A2A tokens) securely. Never commit them t
 ```json
 {
     "name": "Data Analyst",
-    "instructions": "You are a data analyst specialized in business intelligence. Analyze data, create insights, and suggest actionable recommendations. Use visualizations when helpful.",
     "model": "anthropic:claude-sonnet-4-5",
+    "files": {
+        "AGENTS.md": "# Data Analyst\n\nYou are a data analyst specialized in business intelligence. Analyze data, create insights, and suggest actionable recommendations. Use visualizations when helpful."
+    },
     "a2a": {
         "sql_agent": {
             "base_url": "https://sql-agent.example.com",
@@ -309,6 +333,7 @@ For complete API documentation, see:
 
 ## Related Documentation
 
+-   **[AGENTS.md: File-Based Instructions](./agents-md.md)**: Configure assistants using version-controllable Markdown files
 -   **[Threads](../threads/index.md)**: Learn about conversation management
 -   **[Tools](../tools/tools.md)**: Explore available tool integrations
 -   **[MCP Integration](../tools/mcp.md)**: Connect Model Context Protocol servers
