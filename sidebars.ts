@@ -8,7 +8,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Core Features",
-      items: ["assistants/index", "threads/index", "storage/index", "memories/index"],
+      items: ["assistants/index", "threads/index", "storage/index", "memories/index", "agents-md/index"],
     },
     {
       type: "category",
@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Tutorials",
-      items: ["tools/sandbox-tutorial", "memories/tutorial"],
+      items: ["tools/sandbox-tutorial", "memories/tutorial", "agents-md/tutorial"],
     },
   ],
 };
