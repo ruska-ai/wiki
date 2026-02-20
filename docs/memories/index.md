@@ -169,15 +169,60 @@ curl -X 'DELETE' \
 
 **Response:** `204 No Content`
 
-## Configuration via UI
+## Managing Memories via the UI
 
-You can also manage memories through the Orchestra web interface without writing any code. The Settings page provides a visual editor for creating, editing, searching, and deleting memories.
+You can manage memories through the Orchestra web interface without writing any code.
 
-For a step-by-step walkthrough, see the [Memory Tutorial](./tutorial.md).
+### Creating a Memory
+
+1. Navigate to **Settings** from the sidebar
+2. Scroll to the **Memories** card
+3. Click **Add Memory** in the top-right corner
+4. Enter the context you want the AI to remember (e.g., "I prefer Python for backend development")
+5. Click **Save**
+
+### Editing a Memory
+
+1. In the Memories card, hover over the memory you want to edit
+2. Click the **pencil icon** to open the editor
+3. Update the content and click **Save**
+
+### Deleting a Memory
+
+1. Hover over the memory you want to remove
+2. Click the **trash icon**
+3. Confirm deletion in the dialog
+
+### Searching Memories
+
+Use the **search bar** at the top of the Memories card to filter memories by content. This is helpful when you have many stored memories.
+
+:::tip Focused Memories
+Keep each memory focused on a single topic for best results. All memories are automatically injected into every conversation, so clear, specific memories produce better AI responses.
+:::
+
+For a detailed walkthrough with screenshots, see the [Memory Tutorial](./tutorial.md).
+
+## Memories and AGENTS.md
+
+Memories and [AGENTS.md instructions](../assistants/agents-md.md) are complementary systems that work at different layers:
+
+| | Memories | AGENTS.md |
+| --- | --- | --- |
+| **Scope** | Per-user, across all conversations | Per-assistant or per-thread |
+| **Purpose** | User preferences, facts, and context | Assistant behavior and role instructions |
+| **Injection** | Loaded into the agent's virtual filesystem as `/memories.md` | Injected into the system prompt as `INSTRUCTIONS` |
+| **Persistence** | Stored in database, survives across sessions | Stored in assistant `files` dictionary |
+
+**How they work together**: When a conversation starts, Orchestra first loads your memories into the agent's context, then applies the assistant's AGENTS.md instructions to the system prompt. This means your assistant follows its configured role (via AGENTS.md) while also having access to your personal preferences (via memories).
+
+**User files take priority**: If you explicitly provide a file with the same name as a memory file, your file overrides the memory. This lets you temporarily override stored context when needed.
 
 ## Related Documentation
 
 -   **[Assistants](../assistants/index.md)**: Create AI agents that leverage your memories
+-   **[AGENTS.md: File-Based Instructions](../assistants/agents-md.md)**: Configure assistant behavior alongside memories
+-   **[AGENTS.md Workflow Tutorial](../agents-md/tutorial.md)**: Step-by-step guide for file-based instructions
 -   **[Threads](../threads/index.md)**: Start conversations where memories are automatically applied
 -   **[Storage](../storage/index.md)**: Manage files and knowledge bases
 
