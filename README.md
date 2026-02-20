@@ -1,73 +1,103 @@
-<div align="center">
+# LangGraph Bot
 
-<table align="center">
-  <tr>
-    <td style="padding: 0; vertical-align: middle;">
-      <img
-        src="https://avatars.githubusercontent.com/u/139279732?s=200&v=4"
-        width="60"
-        height="60"
-        style="border-radius: 50%; display: block;"
-        alt="Ruska Logo"
-      />
-    </td>
-    <td style="padding: 0 0 0 2px; vertical-align: middle;">
-      <span style="font-weight: 600; font-style: italic; font-size: 2.4rem; line-height: 1;">
-        RCHESTRA DOCS
-      </span>
-    </td>
-  </tr>
-</table>
+LangGraph Bot is a Python-based chatbot application that utilizes the LangGraph and LangChain libraries to process and respond to user inputs. The bot is designed to handle conversational flows and can be configured to use different language models.
 
-Standalone Docusaurus site for Orchestra documentation, deployed independently on Netlify.
+## Features
 
-<a href="https://chat.ruska.ai/docs"><img src="https://img.shields.io/badge/View-API Docs-blue"></a>
-<a href="https://ruska.ai/socials"><img src="https://img.shields.io/badge/Follow-Social-black"></a>
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue)](../LICENSE)
-[![DCO](https://img.shields.io/badge/DCO-1.1-yellow)](../DCO)
+- Stream processing of user inputs and bot responses.
+- Visualization of state graphs using Mermaid.
+- Configurable session management for chat history.
+- Integration with OpenAI's GPT-4o model.
 
-</div>
+## Prerequisites
 
-## 📦 Prerequisites
+- Python 3.8 or higher
+- Access to OpenAI API (for GPT-4o model)
 
--   Node.js 22
--   npm
+## Installation
 
-## 📥 Install
+1. **Clone the repository:**
 
-```bash
-cd docs
-npm install
-```
+   ```bash
+   git clone https://github.com/ryaneggz/langgraph-template.git
+   cd langgraph-template
+   ```
 
-## 🧪 Local Development
+2. **Set up a virtual environment using `uv venv`:**
 
-```bash
-npm start
-```
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+   ```
 
-## 🏗️ Production Build
+3. **Install the dependencies:**
 
-```bash
-npm run build
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## 🚀 Netlify Deployment
+## Configuration
 
-Configured via `netlify.toml` at repo root.
+1. **Environment Variables:**
 
--   Base directory: `docs`
--   Build command: `npm ci && npm run build`
--   Publish directory: `docs/build`
+   Create a `.env` file in the root directory and add your OpenAI API key:
 
-## 🧭 Structure
+   ```plaintext
+   OPENAI_API_KEY=your_openai_api_key
+   ```
 
--   `docs/` - Markdown content (Docusaurus docs)
--   `src/pages/` - Custom pages (homepage)
--   `src/css/` - Theme overrides and brand styles
--   `static/` - Static assets (logos, images)
+   Ensure that your `.env` file is not tracked by git by checking the `.gitignore`:
 
-## 📝 Notes
+   ```gitignore
+   startLine: 1
+   endLine: 1
+   ```
 
--   Docs are hosted at `https://docs.ruska.ai`.
--   The main app redirects `/docs/*` traffic to the docs site.
+## Usage
+
+1. **Run the application:**
+
+   To start the chatbot, run the following command:
+
+   ```bash
+   python main.py
+   ```
+
+   The bot will start a chat loop where you can input messages. Type "quit", "exit", or "q" to end the session.
+
+2. **Debugging:**
+
+   If you are using VSCode, you can use the provided launch configuration to debug the application:
+
+   ```json:.vscode/launch.json
+   startLine: 1
+   endLine: 14
+   ```
+
+## Development
+
+- **Visualizing Graphs:**
+
+  The application can visualize state graphs using the `visualize_graph` function:
+
+  ```python:src/utils/visualize.py
+  startLine: 1
+  endLine: 19
+  ```
+
+- **Stream Processing:**
+
+  The `stream_graph_tokens` function handles the streaming of user inputs and bot responses:
+
+  ```python:src/utils/stream.py
+  startLine: 25
+  endLine: 36
+  ```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
