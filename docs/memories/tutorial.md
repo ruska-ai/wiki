@@ -65,6 +65,47 @@ You can also use the **search bar** to filter memories by content when you have 
 You can create as many memories as you need. All of them are automatically injected into every conversation, so keep each memory focused on a single topic for best results.
 :::
 
+## Step 6: Store AGENTS.md as a Memory
+
+Memories aren't limited to simple preferences — you can store an entire `AGENTS.md` file as a memory. This is the recommended way to give all your conversations consistent agent instructions without attaching the file manually each time.
+
+### Why Store AGENTS.md as a Memory?
+
+When you attach an `AGENTS.md` file to a thread via the file panel, it only applies to that single conversation. By storing your AGENTS.md content as a memory instead, it is automatically injected into **every** conversation, giving all your agents the same instructions by default.
+
+### How to Do It
+
+1. Click **Add Memory** in the Settings > Memories card
+2. Paste your AGENTS.md content into the memory editor. For example:
+
+```markdown
+# My Project Agent
+
+You are a senior engineer working on our project.
+
+## Rules
+- Follow PEP 8 conventions
+- Always write tests for new code
+- Use type hints for all functions
+
+## Persona
+You are concise, pragmatic, and focused on shipping quality code.
+```
+
+3. Click **Save**
+
+The memory is now stored and will be automatically injected into every conversation as a file in the agent's context. The agent reads this content just as if you had attached an `AGENTS.md` file to the thread — but without any manual step.
+
+### Toggling AGENTS.md Memories
+
+You can enable or disable any memory without deleting it. This is useful when you want to temporarily turn off your AGENTS.md instructions for certain workflows — hover over the memory and use the toggle to disable it.
+
+:::info How It Works Under the Hood
+Each memory is stored with a path (e.g., `AGENTS.md`). When a conversation starts, Orchestra's `prepare_memory_files()` function fetches all enabled memories, converts them into files, and injects them into the agent's context. This happens automatically across all entry points — streaming, invoke, and distributed workers.
+:::
+
+For more details on the AGENTS.md format, supported content structures, and precedence rules, see the [AGENTS.md documentation](/agents-md).
+
 ---
 
 For API reference and programmatic access, see [Memories](./index.md).

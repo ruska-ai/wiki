@@ -15,37 +15,77 @@ MCP integration is actively being enhanced with new features and capabilities. T
 
 [MCP](https://modelcontextprotocol.io/introduction) is an open protocol that standardizes how applications provide context to LLMs. Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools.
 
-![Landing Page](https://github.com/ryaneggz/static/blob/main/enso/mcp-enable.gif?raw=true)
-
 ## Introduction
 
 Ruska Labs MCP support is based on the [Langchain MCP Adapter](https://github.com/langchain-ai/langchain-mcp-adapters) repository. A sample MCP server can be found at [Ruska Labs - MCP SSE Server](https://github.com/ruska-ai/mcp-sse).
 
 See this [permalink](https://github.com/ruska-ai/mcp-sse/blob/caa79bee4af4914d729ef1989156b66966121d80/main.py#L22-L27) for an example for how to include `x-mcp-key` authentication.
 
-## Quick Start
+## Quick Start (UI)
 
-1. Open the Tool Selector modal then click the icon that displays the **Add MCP Configuration** panel.
+### Step 1: Open the Manage Tools Modal
 
-    ![Configure MCP](https://github.com/ryaneggz/static/blob/main/enso/configure-mcp.png?raw=true)
+Click the **tool count button** (shows the number of active tools) next to the chat input, then select **Configure Tools** from the dropdown menu.
 
-2. Edit the default MCP Configuration displayed in the JSON Editor. When finished press the **Save Configuration** at the bottom of the panel.
+This opens the **Tool Selection** modal where you can manage all tool integrations across four categories:
 
-    This will store the configuration in your `localStorage` with the key `mcp-config`.
+- **Platform** — Built-in tools (search, sandbox, finance, memory, etc.)
+- **API** — Custom API tools you create
+- **MCP** — Model Context Protocol server integrations
+- **A2A** — Agent-to-Agent protocol connections
 
-    ![Edit Configuration](https://github.com/ryaneggz/static/blob/main/enso/mcp-editor.png?raw=true)
+![Tool Selection Modal](/img/tools/01-tool-selection-modal.png)
 
-3. After **Save Configuration** you should see the MCP server tool information fetched from the defined MCP servers.
+### Step 2: Navigate to the MCP Tab
 
-    ![MCP Info](https://github.com/ryaneggz/static/blob/main/enso/mcp-info.png?raw=true)
+Click the **MCP** tab in the left sidebar to access the MCP server configuration panel.
 
-4. Now that the configuration is saved, close the panel, edit the input, and click submit. You will see tool executions appear in the Thread following the User message and before the AI response.
+If no servers are configured yet, you'll see an empty state prompting you to add one:
 
-    ![MCP Query](https://github.com/ryaneggz/static/blob/main/enso/mcp-query.png?raw=true)
+![MCP Empty State](/img/tools/02-mcp-empty-state.png)
 
-5. Click on the ToolMessage to view its execution details.
+### Step 3: Add an MCP Server
 
-    ![MCP Tool Execution](https://github.com/ryaneggz/static/blob/main/enso/mcp-toolcall.png?raw=true)
+Click the **+ Add Server** button in the top-right corner to open the server configuration form.
+
+![MCP Add Server Form](/img/tools/03-mcp-add-server-form.png)
+
+The form includes the following fields:
+
+| Field | Description |
+|-------|-------------|
+| **Template** | Choose a preset (Custom, Ruska MCP, GitHub MCP) or configure manually |
+| **Server Name** | A unique identifier for your server (e.g., `my_mcp_server`) |
+| **Transport** | Protocol type: **SSE**, **Streamable HTTP**, or **STDIO** |
+| **URL** | The MCP server endpoint URL |
+| **Header Key** *(optional)* | Authentication header name (e.g., `x-api-key`) |
+| **Header Value** | The corresponding header value / API key |
+
+:::tip Templates
+Use the **Template** dropdown to quickly configure common MCP servers. Selecting a template pre-fills the Server Name, Transport, and URL fields.
+
+![Template Dropdown](/img/tools/04-mcp-template-dropdown.png)
+:::
+
+### Step 4: Save and Fetch Tools
+
+Fill in your server details and click **Add Server** to save the configuration:
+
+![Filled Add Server Form](/img/tools/05-mcp-add-server-filled.png)
+
+Once saved, the server appears in the **Configured Servers** list with its transport type and URL. Click **Fetch Tools** to connect and load the available tools from the server:
+
+![MCP Server Added](/img/tools/06-mcp-server-added.png)
+
+After fetching, the server's tools appear as selectable cards in the tool grid below. Click any tool card to enable or disable it — selected tools show a checkmark badge.
+
+### Step 5: Use MCP Tools
+
+Close the modal and start chatting. MCP tools you selected are now available to the AI agent. When the agent uses an MCP tool, you'll see tool execution messages in the thread between your message and the AI response. Click on a tool message to view its execution details.
+
+:::info Configuration Persistence
+Your MCP server configuration is saved to your user defaults on the backend, so it persists across sessions. You can manage your servers at any time by reopening the Manage Tools modal.
+:::
 
 ## How MCP Configuration Works
 
@@ -74,9 +114,17 @@ The `mcp` property accepts a **dictionary of server names** mapped to their conf
 
 Each key in the `mcp` dictionary is a unique server name you choose (e.g., `"weather_server"`, `"database_server"`, `"ruska_mcp"`).
 
+### Supported Transports
+
+| Transport | Description |
+|-----------|-------------|
+| **SSE** | Server-Sent Events — the most common transport for remote MCP servers |
+| **Streamable HTTP** | HTTP-based streaming transport |
+| **STDIO** | Standard I/O — for locally running MCP servers |
+
 ### Granular Tool Selection
 
-Once MCP servers are configured, you can selectively enable specific tools from those servers using the `tools` property:
+Once MCP servers are configured, you can selectively enable specific tools from those servers. In the UI, simply click tool cards to toggle them. Via the API, use the `tools` property:
 
 ```json
 {
@@ -93,10 +141,10 @@ Once MCP servers are configured, you can selectively enable specific tools from 
         }
     },
     "tools": [
-        "get_weather", // From weather_server
-        "get_forecast", // From weather_server
-        "query_database", // From database_server
-        "search" // Built-in platform tool
+        "get_weather",
+        "get_forecast",
+        "query_database",
+        "search"
     ]
 }
 ```
@@ -106,7 +154,7 @@ Once MCP servers are configured, you can selectively enable specific tools from 
 -   **Load multiple MCP servers** at once without enabling all their tools
 -   **Restrict assistants** to specific tools from those servers for better security
 -   **Mix MCP tools** with built-in platform tools like `search`
--   **Better performance** through selective tool access - fewer tools means faster inference
+-   **Better performance** through selective tool access — fewer tools means faster inference
 
 **Example with Assistants:**
 

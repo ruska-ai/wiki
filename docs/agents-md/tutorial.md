@@ -93,9 +93,29 @@ Type a message and send it. The agent will respond following the persona and rul
 
 For example, if you defined a customer support agent and ask "Hi, I'm having trouble resetting my password. Can you help?" — the agent will respond with empathy, acknowledge the issue, and provide step-by-step troubleshooting, following your AGENTS.md instructions.
 
+## Store AGENTS.md as a Memory (Recommended)
+
+Instead of attaching `AGENTS.md` to each thread manually, you can store it as a **Memory** so it applies to every conversation automatically. This is the easiest way to get consistent agent behavior across all threads.
+
+1. Go to **Settings** > **Memories**
+2. Click **Add Memory** and paste your AGENTS.md content
+3. Click **Save**
+
+That's it — your AGENTS.md instructions will be injected into every conversation from now on. You can enable or disable the memory at any time without deleting it.
+
+For the full walkthrough, see the [Memory Tutorial — Step 6: Store AGENTS.md as a Memory](../memories/tutorial.md#step-6-store-agentsmd-as-a-memory).
+
+:::info When to use file attachment vs. memories
+- **Memories**: Use when you want the same AGENTS.md instructions in every conversation (personal defaults)
+- **File attachment**: Use when you need different instructions per thread or per assistant
+- **Assistants**: Use when the whole team should share the same instructions
+
+See [Memories](../memories/index.md) for the full API reference.
+:::
+
 ## Using AGENTS.md with Assistants
 
-For persistent agent behavior, attach AGENTS.md to an **Assistant** instead of a one-off thread:
+For persistent agent behavior shared across a team, attach AGENTS.md to an **Assistant** instead of a one-off thread:
 
 1. Navigate to the **Assistants** page
 2. Create a new assistant or edit an existing one
@@ -144,10 +164,11 @@ curl -X 'POST' \
 
 ## Next Steps
 
-- Read the [AGENTS.md Reference](/agents-md) for full format documentation and API examples
-- Explore [Assistants](/assistants) to create persistent agents with AGENTS.md
-- Connect [MCP Tools](/tools/mcp) to give your AGENTS.md-configured agent access to external capabilities
+- Read the [AGENTS.md Reference](./index.md) for full format documentation and API examples
+- Store AGENTS.md as a [Memory](../memories/tutorial.md#step-6-store-agentsmd-as-a-memory) to apply it to every conversation automatically
+- Explore [Assistants](../assistants/index.md) to create persistent agents with AGENTS.md
+- Connect [MCP Tools](../tools/mcp.md) to give your AGENTS.md-configured agent access to external capabilities
 
 ---
 
-**Learn more**: See the [AGENTS.md reference documentation](/agents-md) for supported formats, precedence rules, and advanced API usage.
+**Learn more**: See the [AGENTS.md reference documentation](./index.md) for supported formats, precedence rules, and advanced API usage.

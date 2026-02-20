@@ -12,7 +12,8 @@ Memories are persistent, per-user context snippets that Orchestra automatically 
 
 -   **Persistent Context**: Memories survive across threads and sessions
 -   **Per-User Scoping**: Each user has their own private set of memories, namespaced by user ID
--   **Automatic Injection**: Memories are retrieved and injected into agent context as `/memories.md` at the start of every conversation
+-   **Automatic Injection**: Memories are retrieved and injected as files into the agent's context at the start of every conversation
+-   **AGENTS.md Integration**: Store your [AGENTS.md](/agents-md) instructions as a memory so they apply to every conversation automatically — no need to attach the file manually each time
 -   **LangGraph BaseStore**: Memories are stored via LangGraph's BaseStore, providing a reliable key-value persistence layer
 -   **Full CRUD API**: Create, read, update, and delete memories programmatically
 
@@ -20,13 +21,17 @@ Memories are persistent, per-user context snippets that Orchestra automatically 
 
 The memories lifecycle follows this flow:
 
-1. **Create a Memory** - A user creates a memory via the API or the Settings UI (e.g., "I prefer Python for backend development")
-2. **Stored in LangGraph BaseStore** - The memory is persisted in the LangGraph BaseStore, namespaced by user ID
-3. **Automatic Retrieval** - When a conversation starts, `prepare_memory_files()` fetches all memories for the current user
-4. **Injected as Markdown** - Memories are formatted as a bullet list and injected as the `/memories.md` file into the agent's context
-5. **Personalized Responses** - The agent reads the memories and tailors its responses accordingly
+1. **Create a Memory** — A user creates a memory via the API or the Settings UI (e.g., "I prefer Python for backend development" or an entire AGENTS.md file)
+2. **Stored in LangGraph BaseStore** — The memory is persisted in the LangGraph BaseStore, namespaced by user ID, with a path identifier (e.g., `AGENTS.md`)
+3. **Automatic Retrieval** — When a conversation starts, `prepare_memory_files()` fetches all enabled memories for the current user
+4. **Injected as Files** — Each memory is converted into a file and injected into the agent's context. For example, a memory with path `AGENTS.md` becomes a file the agent can read just as if it were attached to the thread
+5. **Personalized Responses** — The agent reads the memory files and tailors its responses accordingly
 
 This happens automatically in every entry point — streaming, worker, and invoke — so you never need to manually pass memories into conversations.
+
+:::tip Store AGENTS.md as a Memory
+The most powerful use of memories is storing your [AGENTS.md](/agents-md) instructions as a memory. This gives every conversation consistent agent behavior without manually attaching the file. See the [Memory Tutorial](./tutorial.md#step-6-store-agentsmd-as-a-memory) for a step-by-step guide.
+:::
 
 ## API Reference
 

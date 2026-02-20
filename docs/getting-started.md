@@ -5,71 +5,149 @@ sidebar_position: 2
 
 # Getting Started with Orchestra
 
-Welcome to Orchestra! This guide will walk you through your first steps with the platform, from logging in to sending your first AI-powered message.
+Welcome to Orchestra! This guide walks you through the complete onboarding process — from creating an account to configuring your AI assistant with persistent memories.
 
 ## What You'll Learn
 
--   How to access your Orchestra instance
--   Creating your first conversation thread
--   Understanding and selecting AI models
--   Basic chat interactions
--   Exploring tools and integrations (optional)
+-   How to create an account or sign in
+-   Navigating the Orchestra interface
+-   Configuring your default AI model in Settings
+-   Creating your first memory
+-   Adding AGENTS.md as a memory for consistent agent behavior
 
 ## Prerequisites
 
-Before you begin, ensure you have:
-
--   Access to an Orchestra instance (e.g., `https://chat.ruska.ai`)
--   User account credentials
 -   A modern web browser
+-   An Orchestra instance (e.g., [chat.ruska.ai](https://chat.ruska.ai))
 
-## Quick Start (5 minutes)
+## Step 1: Create an Account or Sign In
 
-### Step 1: Log In
+Navigate to your Orchestra instance. You'll see the landing page with a chat input and two options at the bottom:
 
-1. Navigate to your Orchestra instance in your web browser
-2. Enter your credentials:
-    - **Email**: Your user email (e.g., `admin@example.com` for demo)
-    - **Password**: Your password
-3. Click **Sign In**
+-   **Get Started Free** — create a new account
+-   **Sign in** — log into an existing account
 
-You'll be redirected to the main chat interface.
+![Landing Page](/img/getting-started/01-landing-page.png)
 
-### Step 2: Start a New Thread
+Click **Get Started Free** to register, or **Sign in** if you already have an account.
 
-When you first log in, you'll see the Orchestra interface with:
+### Sign In
 
--   **Sidebar**: Shows your previous threads and assistants
--   **Main Chat Area**: Where conversations happen
--   **Model Selector**: At the top to choose your AI model
+On the login page, enter your credentials:
 
-The interface automatically creates a new thread when you send your first message, or you can explicitly start a new thread from the sidebar.
+-   **Email**: Your registered email address
+-   **Password**: Your password
 
-### Step 3: Select Your Model
+You can also sign in using **GitHub** or other configured OAuth providers.
 
-At the top of the chat interface, you'll see a model dropdown. Orchestra supports multiple AI providers:
+![Login Page](/img/getting-started/02-login-page.png)
 
--   **Anthropic**: Claude models (Haiku, Sonnet, Opus)
--   **OpenAI**: GPT models (GPT-5, GPT-4o, etc.)
--   **Google**: Gemini models
--   **xAI**: Grok models
--   **Groq**: Fast inference models
--   **AWS Bedrock**: Claude, Titan, Llama, Mistral, Kimi K2 (requires AWS credentials)
--   **Ollama**: Local models (self-hosted)
+Click **Sign in** to continue. You'll be redirected to the main chat interface.
 
-Click the dropdown and select your preferred model. For most use cases, we recommend:
+## Step 2: Explore the Interface
 
--   **Claude Haiku 4.5**: Fast, cost-effective for simple tasks
--   **Claude Sonnet 4.5**: Balanced performance for complex reasoning
--   **GPT-4o**: Excellent for multi-modal tasks (text + images)
+After signing in, you'll land on the main chat page. Here's what you'll see:
 
-### Step 4: Send Your First Message
+![Chat Interface](/img/getting-started/03-chat-interface.png)
 
-1. Click in the text input at the bottom of the screen
-2. Type your message or question
-3. Press **Enter** or click the **Send** button
+### Sidebar (Left)
 
-Your message will be sent to the selected AI model, and you'll see the response appear in the chat thread.
+-   **Assistants** — browse and select pre-configured AI agents
+-   **Memories** — manage persistent context that the AI remembers across conversations
+-   **Projects** — organize document indexes for knowledge bases
+-   **Schedules** — set up scheduled agent tasks
+-   **Threads** — view and resume previous conversations
+
+### Main Chat Area (Center)
+
+-   **Text Input** — type your message or question here
+-   **Tools Button** (the number badge) — view and manage available tools
+-   **Manage Files** — attach files to the current conversation
+-   **Assistant Selector** — pick a pre-configured assistant (or use the default)
+-   **Model Indicator** — shows the current AI model (click to go to Settings)
+
+### Top Bar
+
+-   **Toggle Sidebar** — collapse or expand the sidebar
+-   **Share Thread** — share the current conversation
+-   **Theme Toggle** — switch between Day, Dusk, and Night themes
+
+### User Menu (Bottom-Left)
+
+Your username and email are shown at the bottom of the sidebar. Click the **gear icon** next to it to open Settings.
+
+## Step 3: Configure Your Default Model
+
+Click the **model name** next to the chat input (e.g., "gpt-5.2") or the **gear icon** in the bottom-left to open the **Settings** page.
+
+![Settings Page](/img/getting-started/04-settings-page.png)
+
+The Settings page includes:
+
+-   **Default Model** — choose which AI model is used for new conversations. Use the dropdown to select from available models across providers (OpenAI, Anthropic, Google, Groq, xAI, AWS Bedrock).
+-   **Default Sandbox** — choose the code execution backend for agent tasks. "Auto (Recommended)" tries Daytona first, then falls back to local.
+-   **AI Provider Keys** — add your own API keys to use your credentials instead of the system default.
+
+:::tip Model Recommendations
+-   **Claude Sonnet 4.5** — balanced performance for complex reasoning
+-   **Claude Haiku 4.5** — fast and cost-effective for simple tasks
+-   **GPT-5.2** — excellent all-around performance
+-   **Gemini** — strong multi-modal capabilities
+:::
+
+## Step 4: Create Your First Memory
+
+Memories are persistent context snippets that Orchestra automatically injects into every conversation. Navigate to the **Memories** page by clicking **Memories** in the sidebar.
+
+![Memories Page](/img/getting-started/05-memories-page.png)
+
+Click **Add Memory** and enter context you want the AI to always know. For example:
+
+> I prefer Python for backend development and TypeScript for frontend. My timezone is America/Chicago.
+
+Click **Save**. The memory is now stored and will be applied to all future conversations.
+
+:::info Why Memories Matter
+Without memories, you'd need to repeat your preferences in every new conversation. With memories, the AI already knows your context before you type a single message.
+:::
+
+For a detailed walkthrough of creating, editing, and deleting memories, see the [Memory Tutorial](./memories/tutorial.md).
+
+## Step 5: Add AGENTS.md as a Memory
+
+The most powerful use of memories is storing an `AGENTS.md` file — a markdown document that defines how your AI agent should behave. When stored as a memory, these instructions are automatically applied to **every conversation**.
+
+1. Go to the **Memories** page
+2. Click **Add Memory**
+3. Paste your AGENTS.md content. For example:
+
+```markdown
+# My Project Agent
+
+You are a senior engineer working on our project.
+
+## Rules
+- Follow PEP 8 conventions
+- Always write tests for new code
+- Use type hints for all functions
+
+## Persona
+You are concise, pragmatic, and focused on shipping quality code.
+```
+
+4. Click **Save**
+
+The AI will now follow these instructions in every conversation — no need to attach the file manually each time.
+
+:::tip File Attachment vs Memory
+Attaching an `AGENTS.md` file to a thread only applies to that single conversation. Storing it as a memory applies it everywhere. Use memories for your default instructions, and file attachment when you need thread-specific overrides.
+:::
+
+For more details on the AGENTS.md format and how it works, see [AGENTS.md](./agents-md/index.md). For a step-by-step guide on storing it as a memory, see [Memory Tutorial — Step 6](./memories/tutorial.md#step-6-store-agentsmd-as-a-memory).
+
+## Step 6: Send Your First Message
+
+Navigate back to the chat page by clicking the **Orchestra** logo in the top-left corner. Type a message in the text input and press **Enter**:
 
 **Example first messages:**
 
@@ -77,138 +155,22 @@ Your message will be sent to the selected AI model, and you'll see the response 
 -   `Help me write a Python function to calculate fibonacci numbers`
 -   `What's the latest news about AI development?` (requires search tool)
 
-### Step 5: Explore Tools (Optional)
-
-Orchestra's power comes from its ability to integrate external tools. To explore tools:
-
-1. Click the **Tools** icon next to the message input
-2. Browse available tools:
-    - **Search**: Web search via Searx
-    - **MCP Servers**: Configure Model Context Protocol integrations
-    - **A2A Agents**: Connect to Agent-to-Agent protocol services
-
-For now, try asking a question that requires web search:
-
-```
-What is the current price of Bitcoin?
-```
-
-If you have search tools configured, the AI will automatically use them to get real-time information.
-
-## Understanding the Interface
-
-### Sidebar Navigation
-
-The left sidebar provides quick access to:
-
--   **Threads**: All your conversation histories
-    -   Click any thread to resume that conversation
-    -   Threads show preview text, timestamp, and model used
-    -   Delete threads using the trash icon
--   **Assistants**: Pre-configured AI agents (more on this later)
-    -   Create assistants with specific instructions and tools
-    -   Reuse assistants across multiple threads
-
-### User Menu
-
-Click your avatar in the top-right to access:
-
--   **Prompts**: Saved prompt templates for common tasks
--   **Assistants**: Manage your assistant configurations
--   **Schedules**: Set up scheduled agent tasks (cron-based)
--   **Logout**: Sign out of your account
-
-### Theme Toggle
-
-Switch between light and dark mode using the theme toggle button at the top of the interface.
-
-### File Editor Panel
-
-When the AI generates code files or documents during a conversation, Orchestra displays them in a powerful, VSCode-like file editor interface:
-
-![File Editor Panel](https://github.com/ryaneggz/static/blob/main/enso/file-editor-panel.png?raw=true)
-
-**Key Features:**
-
--   **Multi-file Tabs**: Navigate between generated files using tabs at the top
--   **Syntax Highlighting**: Automatic language detection for 20+ programming languages (JavaScript, TypeScript, Python, Go, Rust, Java, C/C++, C#, PHP, Ruby, Swift, Kotlin, HTML, CSS, YAML, JSON, XML, SQL, Shell, Markdown, and more)
--   **Markdown Preview**: Toggle between code view and rendered preview for `.md` files
--   **Copy Content**: One-click copy of individual file contents to your clipboard
--   **Download Options**:
-    -   Download individual files with the download button
-    -   Download all files as a ZIP archive with one click
-
-**When to Use:**
-
-The file editor appears automatically when the AI generates multiple files or code artifacts. For example:
-
--   Ask the AI to "create a simple Express.js app with routes and middleware" - it will generate multiple JavaScript files
--   Request "write a Python script with tests" - you'll get the main script plus test files
--   Say "build a React component with styles" - receive the component file and CSS
-
-**Usage Tips:**
-
-!!! tip "Quick Navigation"
-Use the file tabs to quickly switch between generated files. The active file is highlighted.
-
-!!! tip "Markdown Preview"
-For documentation files, use the preview toggle to see how your markdown will render.
-
-!!! tip "Bulk Download"
-Use the "Download All as ZIP" button to download entire project structures at once.
+The AI will respond using your selected model, and if you created memories, it will already know your preferences.
 
 ## What's Next?
 
-Now that you've sent your first message, explore these features:
+Now that you're set up, explore these features to get the most out of Orchestra:
 
-### Learn About Assistants
-
-[Assistants](assistants/index.md) are pre-configured AI agents with specific instructions, tools, and personalities. They're perfect for:
-
--   Creating specialized agents (e.g., "Python Tutor", "Marketing Copywriter")
--   Reusing consistent behavior across conversations
--   Deploying via API for programmatic access
-
-### Explore Protocol Integrations
-
--   **[Model Context Protocol (MCP)](tools/mcp.md)**: Connect to external tools and data sources
--   **[Agent-to-Agent (A2A)](tools/a2a.md)**: Enable multi-agent workflows
--   **[Search Integration](tools/search.md)**: Add web search capabilities
-
-### Dive into the API
-
-Orchestra provides a full REST API that mirrors the OpenAI Assistants API:
-
--   [API Documentation](https://chat.ruska.ai/docs): Interactive API reference
--   Create threads programmatically
--   Build custom integrations
--   Deploy AI agents at scale
-
-### Advanced Features
-
--   **[Storage & RAG](storage/index.md)**: Upload documents for retrieval-augmented generation
--   **[Projects](https://chat.ruska.ai/api#/Project)**: Organize document indexes for knowledge bases
--   **[Prompts](https://chat.ruska.ai/api#/Prompt)**: Create reusable prompt templates
-
-## Tips for Success
-
-!!! tip "Model Selection"
-Different models excel at different tasks. Haiku for speed, Sonnet for reasoning, GPT-4o for vision tasks. Don't hesitate to switch models mid-conversation!
-
-!!! info "Thread Management"
-Threads maintain full conversation context. Long conversations may impact response time and cost - start a new thread for unrelated topics.
-
-!!! warning "Tool Configuration"
-MCP and A2A integrations require configuration before use. See the respective tool documentation for setup instructions.
+-   **[Assistants](./assistants/index.md)** — create specialized AI agents with specific instructions, tools, and personalities
+-   **[Memories](./memories/index.md)** — learn more about persistent context and the API
+-   **[AGENTS.md](./agents-md/index.md)** — configure agent behavior through markdown
+-   **[MCP Tools](./tools/mcp.md)** — connect to external tools via the Model Context Protocol
+-   **[A2A Agents](./tools/a2a.md)** — enable multi-agent workflows with Agent-to-Agent protocol
+-   **[Storage & RAG](./storage/index.md)** — upload documents for retrieval-augmented generation
+-   **[API Documentation](https://chat.ruska.ai/docs)** — build custom integrations with the REST API
 
 ## Getting Help
 
-If you encounter issues or have questions:
-
--   **[Slack Community](https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg)**: Get help from the community
--   **[GitHub Issues](https://github.com/ruska-ai)**: Report bugs or request features
--   **[API Docs](https://chat.ruska.ai/api)**: Detailed technical reference
-
----
-
-**Ready to build?** Start exploring [Assistants](assistants/index.md) or dive into the [API Documentation](https://chat.ruska.ai/docs).
+-   **[Slack Community](https://join.slack.com/t/ruska-ai/shared_invite/zt-3l2lnevo6-hOe5ZeoAz~xj7CFAJk2bzg)** — get help from the community
+-   **[GitHub](https://github.com/ruska-ai)** — report bugs or request features
+-   **[Docs](https://docs.ruska.ai)** — full documentation site
