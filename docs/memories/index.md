@@ -17,6 +17,8 @@ Memories are persistent, per-user context snippets that Orchestra automatically 
 -   **LangGraph BaseStore**: Memories are stored via LangGraph's BaseStore, providing a reliable key-value persistence layer
 -   **Full CRUD API**: Create, read, update, and delete memories programmatically
 
+![Memories list view showing memory cards with toggle, edit, and delete controls](/img/memories/01-memories-list.png)
+
 ## How It Works
 
 The memories lifecycle follows this flow:
@@ -176,7 +178,21 @@ curl -X 'DELETE' \
 
 ## Configuration via UI
 
-You can also manage memories through the Orchestra web interface without writing any code. The Settings page provides a visual editor for creating, editing, searching, and deleting memories.
+You can also manage memories through the Orchestra web interface without writing any code. The Memories page provides a visual editor for creating, editing, searching, and deleting memories.
+
+### Creating a Memory
+
+Click **Add Memory** to open the creation form. Give your memory a file name (e.g., `AGENTS.md`, `preferences.md`) and write the content using the built-in markdown editor.
+
+![Create memory form with file name field and markdown editor](/img/memories/02-create-memory.png)
+
+### Viewing and Editing a Memory
+
+Click **Edit** on any memory card to view its full content. The detail view includes a **Preview** tab for rendered markdown and an **Editor** tab for raw editing, along with an **Enabled** toggle to control whether the memory is injected into conversations.
+
+![Memory detail view showing rendered markdown preview with enabled toggle](/img/memories/03-edit-memory.png)
+
+![Memory editor view showing raw markdown with line numbers](/img/memories/04-edit-memory-editor.png)
 
 For a step-by-step walkthrough, see the [Memory Tutorial](./tutorial.md).
 
