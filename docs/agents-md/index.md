@@ -149,6 +149,25 @@ and CI/CD pipelines.
 4. Note any risks or trade-offs
 ```
 
+## Storing AGENTS.md via Memories
+
+Instead of attaching an `AGENTS.md` file manually to each thread, you can store it as a **[Memory](../memories/index.md)**. This makes your AGENTS.md instructions apply to **every conversation automatically**.
+
+When stored as a memory:
+
+1. Your AGENTS.md content is persisted in the [Memories](../memories/index.md) system
+2. Orchestra's `prepare_memory_files()` retrieves it at the start of every conversation
+3. The content is injected as a file into the agent's context — identical to attaching it manually
+4. You can enable or disable the memory at any time without deleting it
+
+This is the **recommended approach** for personal AGENTS.md instructions, since it removes the need to attach the file each time you start a new thread.
+
+:::tip Get Started
+For a step-by-step guide on storing AGENTS.md as a memory, see [Memory Tutorial — Step 6: Store AGENTS.md as a Memory](../memories/tutorial.md#step-6-store-agentsmd-as-a-memory).
+:::
+
+Use the file-attachment approach (described above) when you need different AGENTS.md instructions per assistant or per thread, and the memories approach when you want a single set of instructions applied everywhere.
+
 ## Connection to DeepAgents Memory
 
 Under the hood, Orchestra uses [LangChain DeepAgents](https://docs.langchain.com/oss/python/deepagents/customization#memory) for agent orchestration. The `instructions` field maps directly to the agent's instruction context, which the DeepAgents framework uses to guide the agent's reasoning and tool usage.
@@ -159,9 +178,11 @@ When AGENTS.md content is injected as `instructions`, it becomes part of the age
 
 - **[Assistants](../assistants/index.md)**: Create and manage assistants
 - **[Threads](../threads/index.md)**: Conversation management
+- **[Memories](../memories/index.md)**: Store AGENTS.md as a persistent memory
+- **[Memory Tutorial](../memories/tutorial.md)**: Step-by-step guide including AGENTS.md as a memory
 - **[AGENTS.md Tutorial](./tutorial.md)**: Step-by-step walkthrough with screenshots
 - **[Tools](../tools/tools.md)**: Available tool integrations
 
 ---
 
-**Next Steps**: Follow the [AGENTS.md Tutorial](./tutorial.md) to create your first AGENTS.md-powered assistant!
+**Next Steps**: Follow the [AGENTS.md Tutorial](./tutorial.md) to create your first AGENTS.md-powered assistant, or store your AGENTS.md as a [Memory](../memories/tutorial.md#step-6-store-agentsmd-as-a-memory) to apply it everywhere automatically!
