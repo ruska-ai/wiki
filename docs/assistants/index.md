@@ -17,6 +17,8 @@ Unlike ad-hoc chat conversations, Assistants maintain consistent behavior across
 -   **Model Selection**: Choose the best model for the assistant's purpose
 -   **Reusability**: Use the same assistant across many conversations
 
+![Assistants list view showing agent cards with tools and model info](/img/assistants/01-assistants-list.png)
+
 ## Key Concepts
 
 ### What are Assistants?
@@ -68,6 +70,8 @@ Assistants are persistent configurations that define how an AI agent should beha
     - **Tools**: Attach search, MCP servers, or A2A agents
 4. Switch to the **Editor** view in the file panel and create an `AGENTS.md` file to define the assistant's instructions (see [AGENTS.md: File-Based Instructions](./agents-md.md) for details)
 5. Click **Save**
+
+![Create assistant form with name, description, instructions, and model fields](/img/assistants/02-create-assistant.png)
 
 Your assistant is now ready to use in any new thread.
 
@@ -123,6 +127,8 @@ You can still use the `instructions` field directly, but `AGENTS.md` in `files` 
 2. A new thread starts automatically with that assistant's configuration
 3. Send your message - the assistant responds according to its instructions
 
+![Active chat with an assistant showing the input area and model selection](/img/assistants/04-assistant-chat.png)
+
 **Via API:**
 
 ```bash
@@ -147,7 +153,11 @@ The thread will inherit the assistant's configuration (instructions, tools, mode
 
 ### Updating an Assistant
 
-Modify an assistant's configuration at any time. Update the `AGENTS.md` file in the `files` dictionary:
+Modify an assistant's configuration at any time. Click the **Config** tab on any assistant to view and edit its settings.
+
+![Assistant configuration showing name, description, and instructions](/img/assistants/03-assistant-config.png)
+
+Update the `AGENTS.md` file in the `files` dictionary:
 
 ```bash
 curl -X 'PATCH' \
