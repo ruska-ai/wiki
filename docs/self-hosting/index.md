@@ -146,6 +146,20 @@ ACCESS_SECRET_KEY=minio-secret-key
 BUCKET=orchestra
 ```
 
+## Sandbox (Optional)
+
+Orchestra supports an optional sandbox environment for secure shell command execution via the `exec_server` MCP service.
+
+To enable the sandbox alongside your Orchestra stack:
+
+```bash
+COMPOSE_PROFILES=tools docker compose up -d
+```
+
+This starts the `exec_server` container on port `3005`, providing the `exec_command` tool to your agents.
+
+For full configuration details, see the [Sandbox documentation](../tools/sandbox.md).
+
 ## Running Orchestra
 
 ### Development Mode

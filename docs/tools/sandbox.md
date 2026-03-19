@@ -26,7 +26,13 @@ Execute a shell command inside the container and return stdout/stderr.
 | --------- | ------ | -------- | ------------------------------ |
 | `cmd`     | string | Yes      | The shell command to execute   |
 
-Commands run as an unprivileged `executor` user in `/home/executor` with a 120-second timeout and 10 MB output buffer. The container image (Debian Bookworm) ships with `curl`, `jq`, `node` (v22), and `gh` (GitHub CLI) pre-installed.
+Commands run as an unprivileged `executor` user in `/home/executor` with a 120-second timeout and 10 MB output buffer. The container image (Debian Bookworm) ships with the following pre-installed:
+
+- `curl` — HTTP client
+- `jq` — JSON processor
+- `node` (v22) — JavaScript runtime
+- `gh` — GitHub CLI
+- `agent-browser` — Browser automation with Playwright/Chromium
 
 **Response format:**
 
@@ -145,7 +151,8 @@ Add the sandbox as an MCP server in the Orchestra UI or API. See the [MCP docs](
 
 | Field     | Value                                                                                          |
 | --------- | ---------------------------------------------------------------------------------------------- |
-| URL       | `http://exec_server:3005/mcp` (docker network) or `http://localhost:3005/mcp` (host)          |
+| URL       | `http://exec_server:3005/mcp` (same docker network) or `http://localhost:3005/mcp` (host)     |
+| URL       | `http://host.docker.internal:3005/mcp` (backend in Docker, exec_server on host or separate compose stack) |
 | Transport | `streamable_http`                                                                              |
 | Headers   | `{"x-api-key": "<API_KEY>"}` if auth is enabled, otherwise `{}`                               |
 
@@ -209,5 +216,8 @@ The assistant will invoke the `exec_command` tool with the appropriate shell com
 | Health check fails | Ensure port `3005` is not in use and the container is running with `docker ps` |
 | Authentication error (401) | Verify the `x-api-key` header matches the `API_KEY` env var on the container |
 | Tool not appearing in Orchestra | Confirm the MCP config is saved and the URL is reachable from the Orchestra backend |
+| MCP tools silently not loading | Check backend/worker logs for `Error fetching MCP tools`. MCP errors are caught silently — the agent proceeds without MCP tools and no error is shown in the UI |
+| Docker Compose cross-stack URL | Use `http://host.docker.internal:3005/mcp` when exec_server runs in a separate compose stack from the backend |
+| Agent says tool is unavailable despite config | The agent may be reading stale workspace memory files. Start a fresh thread or clear the agent's `/memory/` files |
 | Command timeout | Commands have a 120-second limit; break long-running tasks into smaller steps |
 | Permission denied | Commands run as unprivileged `executor` user; use `sudo` if available or rebuild the image |

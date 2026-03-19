@@ -87,6 +87,10 @@ Close the modal and start chatting. MCP tools you selected are now available to 
 Your MCP server configuration is saved to your user defaults on the backend, so it persists across sessions. You can manage your servers at any time by reopening the Manage Tools modal.
 :::
 
+:::warning Silent Failures
+If an MCP server is unreachable or returns an error during tool discovery, the agent will proceed without those tools. No error is shown in the chat UI. Check the backend logs for `Error fetching MCP tools` if expected tools are missing from the agent's tool list.
+:::
+
 ## How MCP Configuration Works
 
 The `mcp` property accepts a **dictionary of server names** mapped to their configurations. This allows you to connect multiple MCP servers simultaneously:
@@ -106,13 +110,25 @@ The `mcp` property accepts a **dictionary of server names** mapped to their conf
             "url": "https://mcp-server2.example.com",
             "headers": {
                 "x-mcp-key": "your_key_2"
-            }
+            },
+            "enabled": false
         }
     }
 }
 ```
 
 Each key in the `mcp` dictionary is a unique server name you choose (e.g., `"weather_server"`, `"database_server"`, `"ruska_mcp"`).
+
+### Configuration Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `transport` | string | Yes | Protocol type: `sse`, `streamable_http`, or `stdio` |
+| `url` | string | Yes | The MCP server endpoint URL |
+| `headers` | object | No | HTTP headers for authentication (e.g., `{"x-api-key": "..."}`) |
+| `enabled` | boolean | No | Toggle the server on/off without removing its config. Defaults to `true` |
+
+Setting `"enabled": false` lets you temporarily disable an MCP server without deleting its configuration. Servers without the `enabled` field are enabled by default (backwards compatible).
 
 ### Supported Transports
 
