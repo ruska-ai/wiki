@@ -16,9 +16,22 @@ The ubuntu sandbox is a standalone MCP server that runs inside an isolated Docke
 
 ## Tools
 
-The server exposes a single tool:
+The server exposes 10 tools for file management, code editing, and shell execution:
 
-### `exec_command`
+| Tool | Description |
+| ---- | ----------- |
+| `execute` | Execute a shell command and return stdout/stderr |
+| `exec_command` | Alias for `execute` (backward compatibility) |
+| `read` | Read file with line numbers (offset/limit pagination) |
+| `write` | Write content to a file (creates parent dirs) |
+| `edit` | Find-and-replace string in a file (supports `replace_all`) |
+| `grep` | Search for a fixed-string pattern in files |
+| `glob` | Find files by name glob pattern |
+| `ls` | List directory contents |
+| `upload_file` | Upload a base64-encoded file |
+| `download_file` | Download a file as base64 |
+
+### `exec_command` / `execute`
 
 Execute a shell command inside the container and return stdout/stderr.
 
@@ -43,6 +56,71 @@ stderr:
 <command stderr>
 exit_code: <code>
 ```
+
+<details>
+<summary>Other tool parameter schemas</summary>
+
+#### `read`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `file_path` | string | Yes | Absolute path to the file |
+| `offset` | number | No | Line number to start reading from |
+| `limit` | number | No | Maximum number of lines to read |
+
+#### `write`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `file_path` | string | Yes | Absolute path to the file (parent dirs created automatically) |
+| `content` | string | Yes | Content to write |
+
+#### `edit`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `file_path` | string | Yes | Absolute path to the file |
+| `old_string` | string | Yes | Text to find |
+| `new_string` | string | Yes | Replacement text |
+| `replace_all` | boolean | No | Replace all occurrences (default: false) |
+
+#### `grep`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `pattern` | string | Yes | Fixed-string pattern to search for |
+| `path` | string | No | Directory or file to search in (default: working directory) |
+| `include` | string | No | Glob pattern to filter files (e.g. `*.py`) |
+
+#### `glob`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `pattern` | string | Yes | Glob pattern (e.g. `**/*.ts`) |
+| `path` | string | No | Base directory (default: working directory) |
+
+#### `ls`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `path` | string | No | Directory to list (default: working directory) |
+
+#### `upload_file`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `file_path` | string | Yes | Destination path inside the container |
+| `content` | string | Yes | Base64-encoded file content |
+
+#### `download_file`
+
+| Parameter | Type   | Required | Description |
+| --------- | ------ | -------- | ----------- |
+| `file_path` | string | Yes | Path to the file to download |
+
+Returns the file content as a base64-encoded string.
+
+</details>
 
 ## Prerequisites
 
@@ -74,7 +152,7 @@ Verify the server is running:
 
 ```bash
 curl http://localhost:3005/health
-# {"status":"ok","sessions":0}
+# {"status":"ok","sessions":0,"sandbox_id":"..."}
 ```
 
 ## Environment Variables
@@ -104,7 +182,7 @@ In the Inspector UI:
 2. Set **URL** to `http://localhost:3005/mcp`
 3. If `API_KEY` is set, add a header: `x-api-key: <your key>`
 4. Click **Connect**
-5. Navigate to the **Tools** tab — you should see `exec_command`
+5. Navigate to the **Tools** tab — you should see all 10 tools (e.g., `exec_command`, `execute`, `read`, `write`, `edit`, etc.)
 6. Click `exec_command`, enter `{"cmd": "echo hello world"}`, and click **Run** to verify output
 
 ### Manual curl test
@@ -146,6 +224,22 @@ curl -s -X POST http://localhost:3005/mcp \
 ## Connect to Orchestra
 
 Add the sandbox as an MCP server in the Orchestra UI or API. See the [MCP docs](/tools/mcp) for general MCP configuration instructions.
+
+### Default Sandbox (Recommended)
+
+The simplest way to enable the MCP sandbox for all conversations:
+
+1. Go to **Settings** in the Orchestra UI.
+2. Under **Default Sandbox**, select **MCP Sandbox**.
+3. Enter the **Server URL** (e.g., `http://host.docker.internal:3005`).
+4. Optionally enter an **API Key** if your sandbox has `API_KEY` set.
+5. Click **Save**.
+
+A **Connected** or **Unreachable** status indicator will appear confirming whether the sandbox is reachable. Once connected, all new conversations will automatically use the MCP sandbox for code execution.
+
+### Per-Assistant MCP Config
+
+For users who want the sandbox on specific assistants only, add it as an MCP server in the assistant configuration. See the [Sandbox Tutorial](/tools/sandbox-tutorial) for a step-by-step walkthrough.
 
 ### Connection Details
 
@@ -198,15 +292,17 @@ curl -X 'POST' \
 
 ## Usage
 
-Once connected, the `exec_command` tool is available to your assistant. Example prompts:
+Once connected, all sandbox tools are available to your assistant. Example prompts:
 
-- "Run `uname -a` to check the OS"
-- "Install python3 and run a hello world script"
-- "List all files in the home directory"
-- "Install curl and fetch https://httpbin.org/get"
-- "Clone a repo with `gh` and list its contents"
+- "Run `uname -a` to check the OS" — uses `execute` / `exec_command`
+- "Read the contents of /home/executor/README.md" — uses `read`
+- "Create a file called hello.py with a hello world script" — uses `write`
+- "Find all .json files in the home directory" — uses `glob`
+- "Search for TODO comments in the project" — uses `grep`
+- "Install python3 and run a hello world script" — uses `exec_command`
+- "Clone a repo with `gh` and list its contents" — uses `exec_command` + `ls`
 
-The assistant will invoke the `exec_command` tool with the appropriate shell command and return the output.
+The assistant will select the appropriate sandbox tool based on the task.
 
 ## Troubleshooting
 

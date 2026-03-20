@@ -85,7 +85,7 @@ Click the **model name** next to the chat input (e.g., "gpt-5.2") or the **gear 
 The Settings page includes:
 
 -   **Default Model** — choose which AI model is used for new conversations. Use the dropdown to select from available models across providers (OpenAI, Anthropic, Google, Groq, xAI, AWS Bedrock).
--   **Default Sandbox** — choose the code execution backend for agent tasks. "Auto (Recommended)" tries Daytona first, then falls back to local.
+-   **Default Sandbox** — choose the code execution backend for agent tasks. Choose between "State (Default)" for local execution, "MCP Sandbox" for isolated Docker-based execution (configure URL and optional API key inline), or "Daytona" for cloud sandboxes.
 -   **AI Provider Keys** — add your own API keys to use your credentials instead of the system default.
 
 :::tip Model Recommendations
